@@ -1,0 +1,46 @@
+{
+  "app": {
+    "name": "나의 애플리케이션",
+    "version": "버전 1.0",
+    "description": "작업 관리를 위한 종합 애플리케이션"
+  },
+  "common": {
+    "save": "저장",
+    "cancel": "취소",
+    "confirm": "확인",
+    "delete": "삭제",
+    "edit": "편집",
+    "search": "검색",
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다"
+  },
+  "auth": {
+    "login": "로그인",
+    "logout": "로그아웃",
+    "register": "계정 만들기",
+    "forgotPassword": "비밀번호 찾기",
+    "username": "사용자 이름",
+    "password": "비밀번호",
+    "email": "이메일 주소",
+    "loginFailed": "사용자 이름 또는 비밀번호가 유효하지 않습니다",
+    "loginSuccess": "다시 오신 것을 환영합니다!"
+  },
+  "dashboard": {
+    "title": "대시보드",
+    "welcome": "환영합니다, {name}님",
+    "statistics": "통계 개요",
+    "totalUsers": "전체 사용자",
+    "activeUsers": "활성 사용자",
+    "newUsers": "신규 사용자",
+    "revenue": "수익",
+    "recentActivity": "최근 활동",
+    "quickActions": "빠른 작업"
+  },
+  "validation": {
+    "required": "이 필드는 필수입니다",
+    "emailInvalid": "유효한 이메일을 입력해주세요",
+    "minLength": "최소 길이는 {min}자입니다",
+    "maxLength": "최대 길이는 {max}자입니다",
+    "passwordMismatch": "비밀번호가 일치하지 않습니다"
+  }
+}

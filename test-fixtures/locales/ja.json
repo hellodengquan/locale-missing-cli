@@ -1,0 +1,56 @@
+{
+  "app": {
+    "name": "マイアプリケーション",
+    "version": "バージョン 1.0",
+    "description": "タスク管理のための総合アプリケーション"
+  },
+  "common": {
+    "save": "保存",
+    "cancel": "キャンセル",
+    "confirm": "確認",
+    "delete": "削除",
+    "edit": "編集",
+    "search": "検索",
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "success": "操作が成功しました"
+  },
+  "auth": {
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "register": "アカウント作成",
+    "forgotPassword": "パスワードを忘れた",
+    "username": "ユーザー名",
+    "password": "パスワード",
+    "email": "メールアドレス",
+    "loginFailed": "ユーザー名またはパスワードが無効です",
+    "loginSuccess": "おかえりなさい！"
+  },
+  "dashboard": {
+    "title": "ダッシュボード",
+    "welcome": "ようこそ、{name}さん",
+    "statistics": "統計概要",
+    "totalUsers": "総ユーザー数",
+    "activeUsers": "アクティブユーザー",
+    "newUsers": "新規ユーザー",
+    "revenue": "収益",
+    "recentActivity": "最近のアクティビティ",
+    "quickActions": "クイックアクション"
+  },
+  "profile": {
+    "title": "マイプロフィール",
+    "avatar": "アバター",
+    "bio": "自己紹介",
+    "settings": "設定",
+    "preferences": "環境設定",
+    "notifications": "通知設定",
+    "security": "セキュリティ設定"
+  },
+  "validation": {
+    "required": "このフィールドは必須です",
+    "emailInvalid": "有効なメールアドレスを入力してください",
+    "minLength": "最小文字数は{min}文字です",
+    "maxLength": "最大文字数は{max}文字です",
+    "passwordMismatch": "パスワードが一致しません"
+  }
+}

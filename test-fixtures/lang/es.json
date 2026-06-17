@@ -1,0 +1,61 @@
+{
+  "app": {
+    "name": "Mi Aplicación",
+    "version": "Versión 1.0",
+    "description": "Una aplicación integral para gestionar tareas"
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "search": "Buscar",
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "success": "Operación exitosa",
+    "close": "Cerrar"
+  },
+  "auth": {
+    "login": "Iniciar Sesión",
+    "logout": "Cerrar Sesión",
+    "register": "Crear Cuenta",
+    "forgotPassword": "Olvidé mi Contraseña",
+    "username": "Nombre de Usuario",
+    "password": "Contraseña",
+    "email": "Correo Electrónico",
+    "loginFailed": "Nombre de usuario o contraseña inválidos",
+    "loginSuccess": "¡Bienvenido de nuevo!"
+  },
+  "dashboard": {
+    "title": "Panel de Control",
+    "welcome": "Bienvenido, {name}",
+    "statistics": "Resumen de Estadísticas",
+    "totalUsers": "Total de Usuarios",
+    "activeUsers": "Usuarios Activos",
+    "newUsers": "Nuevos Usuarios",
+    "revenue": "Ingresos",
+    "recentActivity": "Actividad Reciente",
+    "quickActions": "Acciones Rápidas"
+  },
+  "profile": {
+    "title": "Mi Perfil",
+    "avatar": "Avatar",
+    "bio": "Biografía",
+    "settings": "Configuración",
+    "preferences": "Preferencias",
+    "notifications": "Notificaciones",
+    "security": "Configuración de Seguridad"
+  },
+  "validation": {
+    "required": "Este campo es obligatorio",
+    "emailInvalid": "Por favor ingrese un correo válido",
+    "minLength": "La longitud mínima es {min} caracteres",
+    "maxLength": "La longitud máxima es {max} caracteres",
+    "passwordMismatch": "Las contraseñas no coinciden"
+  },
+  "extra": {
+    "bonusFeature": "Función adicional",
+    "specialOffer": "Oferta especial"
+  }
+}

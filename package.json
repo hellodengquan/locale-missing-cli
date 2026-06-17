@@ -1,0 +1,30 @@
+{
+  "name": "locale-missing-scanner",
+  "version": "1.0.0",
+  "description": "扫描项目中多语言资源文件，定位缺失的翻译键并生成覆盖率报告",
+  "main": "src/index.js",
+  "bin": {
+    "locale-scan": "src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/cli.js",
+    "test": "node src/cli.js --dir ./test-fixtures"
+  },
+  "keywords": [
+    "i18n",
+    "locale",
+    "translation",
+    "scanner",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "glob": "^10.3.10"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

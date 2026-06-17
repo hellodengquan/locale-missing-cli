@@ -1,0 +1,45 @@
+{
+  "app": {
+    "name": "我的应用程序",
+    "version": "版本 1.0",
+    "description": "一个用于管理任务的综合应用程序"
+  },
+  "common": {
+    "save": "保存",
+    "cancel": "取消",
+    "confirm": "确认",
+    "delete": "删除",
+    "edit": "编辑",
+    "search": "搜索",
+    "loading": "加载中...",
+    "error": "发生错误",
+    "success": "操作成功",
+    "close": "关闭"
+  },
+  "auth": {
+    "login": "登录",
+    "logout": "退出登录",
+    "register": "创建账户",
+    "forgotPassword": "忘记密码",
+    "username": "用户名",
+    "password": "密码",
+    "email": "电子邮箱",
+    "loginFailed": "用户名或密码无效"
+  },
+  "dashboard": {
+    "title": "仪表盘",
+    "welcome": "欢迎回来，{name}",
+    "statistics": "统计概览",
+    "totalUsers": "用户总数",
+    "activeUsers": "活跃用户",
+    "newUsers": "新增用户",
+    "recentActivity": "最近活动"
+  },
+  "profile": {
+    "title": "我的资料",
+    "avatar": "头像",
+    "bio": "个人简介",
+    "settings": "设置",
+    "notifications": "通知设置"
+  }
+}

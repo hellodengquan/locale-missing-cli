@@ -1,0 +1,36 @@
+{
+  "app": {
+    "name": "Mon Application",
+    "version": "Version 1.0"
+  },
+  "common": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "search": "Rechercher",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "success": "Opération réussie",
+    "close": "Fermer"
+  },
+  "auth": {
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "register": "Créer un compte",
+    "forgotPassword": "Mot de passe oublié",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "email": "Adresse e-mail"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "welcome": "Bienvenue, {name}",
+    "statistics": "Aperçu des statistiques",
+    "totalUsers": "Nombre total d'utilisateurs",
+    "activeUsers": "Utilisateurs actifs",
+    "newUsers": "Nouveaux utilisateurs",
+    "revenue": "Revenus"
+  }
+}

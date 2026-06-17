@@ -1,0 +1,57 @@
+{
+  "app": {
+    "name": "My Application",
+    "version": "Version 1.0",
+    "description": "A comprehensive application for managing tasks"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "loading": "Loading...",
+    "error": "Error occurred",
+    "success": "Operation successful",
+    "close": "Close"
+  },
+  "auth": {
+    "login": "Log In",
+    "logout": "Log Out",
+    "register": "Create Account",
+    "forgotPassword": "Forgot Password",
+    "username": "Username",
+    "password": "Password",
+    "email": "Email Address",
+    "loginFailed": "Invalid username or password",
+    "loginSuccess": "Welcome back!"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome, {name}",
+    "statistics": "Statistics Overview",
+    "totalUsers": "Total Users",
+    "activeUsers": "Active Users",
+    "newUsers": "New Users",
+    "revenue": "Revenue",
+    "recentActivity": "Recent Activity",
+    "quickActions": "Quick Actions"
+  },
+  "profile": {
+    "title": "My Profile",
+    "avatar": "Avatar",
+    "bio": "Biography",
+    "settings": "Settings",
+    "preferences": "Preferences",
+    "notifications": "Notifications",
+    "security": "Security Settings"
+  },
+  "validation": {
+    "required": "This field is required",
+    "emailInvalid": "Please enter a valid email",
+    "minLength": "Minimum length is {min} characters",
+    "maxLength": "Maximum length is {max} characters",
+    "passwordMismatch": "Passwords do not match"
+  }
+}

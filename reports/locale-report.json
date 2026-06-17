@@ -1,0 +1,127 @@
+{
+  "generatedAt": "2026-06-17T22:15:29.936Z",
+  "summary": {
+    "referenceLocale": "es",
+    "totalLanguages": 6,
+    "totalKeys": 45,
+    "overallCoverage": 82.59,
+    "completeLocales": [
+      "es"
+    ],
+    "incompleteLocales": [
+      "zh-CN",
+      "ja",
+      "en",
+      "fr",
+      "ko"
+    ]
+  },
+  "details": {
+    "zh-CN": {
+      "locale": "zh-CN",
+      "isReference": false,
+      "coverage": 73.33,
+      "totalKeys": 45,
+      "presentCount": 33,
+      "missingCount": 12,
+      "missingKeys": [
+        "auth.loginSuccess",
+        "dashboard.quickActions",
+        "dashboard.revenue",
+        "extra.bonusFeature",
+        "extra.specialOffer",
+        "profile.preferences",
+        "profile.security",
+        "validation.emailInvalid",
+        "validation.maxLength",
+        "validation.minLength",
+        "validation.passwordMismatch",
+        "validation.required"
+      ]
+    },
+    "ja": {
+      "locale": "ja",
+      "isReference": false,
+      "coverage": 93.33,
+      "totalKeys": 45,
+      "presentCount": 42,
+      "missingCount": 3,
+      "missingKeys": [
+        "common.close",
+        "extra.bonusFeature",
+        "extra.specialOffer"
+      ]
+    },
+    "en": {
+      "locale": "en",
+      "isReference": false,
+      "coverage": 95.56,
+      "totalKeys": 45,
+      "presentCount": 43,
+      "missingCount": 2,
+      "missingKeys": [
+        "extra.bonusFeature",
+        "extra.specialOffer"
+      ]
+    },
+    "fr": {
+      "locale": "fr",
+      "isReference": false,
+      "coverage": 57.78,
+      "totalKeys": 45,
+      "presentCount": 26,
+      "missingCount": 19,
+      "missingKeys": [
+        "app.description",
+        "auth.loginFailed",
+        "auth.loginSuccess",
+        "dashboard.quickActions",
+        "dashboard.recentActivity",
+        "extra.bonusFeature",
+        "extra.specialOffer",
+        "profile.avatar",
+        "profile.bio",
+        "profile.notifications",
+        "profile.preferences",
+        "profile.security",
+        "profile.settings",
+        "profile.title",
+        "validation.emailInvalid",
+        "validation.maxLength",
+        "validation.minLength",
+        "validation.passwordMismatch",
+        "validation.required"
+      ]
+    },
+    "ko": {
+      "locale": "ko",
+      "isReference": false,
+      "coverage": 75.56,
+      "totalKeys": 45,
+      "presentCount": 34,
+      "missingCount": 11,
+      "missingKeys": [
+        "common.close",
+        "common.success",
+        "extra.bonusFeature",
+        "extra.specialOffer",
+        "profile.avatar",
+        "profile.bio",
+        "profile.notifications",
+        "profile.preferences",
+        "profile.security",
+        "profile.settings",
+        "profile.title"
+      ]
+    },
+    "es": {
+      "locale": "es",
+      "isReference": true,
+      "coverage": 100,
+      "totalKeys": 45,
+      "presentCount": 45,
+      "missingCount": 0,
+      "missingKeys": []
+    }
+  }
+}
