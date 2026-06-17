@@ -26,7 +26,9 @@ program
   .option('--max-matrix-rows <number>', '矩阵最多显示行数', '30')
   .option('-o, --output <path>', '报告输出目录', null)
   .option('--format <format>', '输出格式: console,json,csv,all', 'console')
-  .option('--fail-under <percentage>', '覆盖率低于此百分比时退出码为 1', '0');
+  .option('--fail-under <percentage>', '覆盖率低于此百分比时退出码为 1', '0')
+  .option('--placeholder <tokens...>', '自定义占位符标记（字符串或 /regex/ 格式），匹配到的值视为未翻译。默认包含 TODO/TBD/[en] 等')
+  .option('--no-default-placeholders', '禁用内置占位符检测，仅使用 --placeholder 指定的');
 
 async function main() {
   program.parse(process.argv);
@@ -49,9 +51,18 @@ async function main() {
     process.exit(0);
   }
   console.log(chalk.green(`✅ 找到 ${localeCount} 种语言的资源文件`));
+  const { normalizePlaceholders, DEFAULT_PLACEHOLDERS } = require('./analyzer');
+  let placeholderList = [];
+  if (opts.defaultPlaceholders !== false) {
+    placeholderList = placeholderList.concat(DEFAULT_PLACEHOLDERS);
+  }
+  if (opts.placeholder && opts.placeholder.length > 0) {
+    placeholderList = placeholderList.concat(opts.placeholder);
+  }
   const analysis = analyzeCoverage(scanned, {
     referenceLocale: opts.reference,
-    useAllKeysUnion: !!opts.union
+    useAllKeysUnion: !!opts.union,
+    placeholders: placeholderList
   });
   const consoleOptions = {
     showMissingKeys: opts.missing !== false,

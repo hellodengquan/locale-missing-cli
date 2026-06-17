@@ -1,0 +1,57 @@
+{
+  "app": {
+    "name": "La Mia Applicazione",
+    "version": "   ",
+    "description": "[en] A comprehensive application for managing tasks"
+  },
+  "common": {
+    "save": "Salva",
+    "cancel": "Annulla",
+    "confirm": "Conferma",
+    "delete": "TODO: tradurre elimina",
+    "edit": "Modifica",
+    "search": "Cerca",
+    "loading": "Caricamento...",
+    "error": "Si è verificato un errore",
+    "success": "Operazione riuscita",
+    "close": "    "
+  },
+  "auth": {
+    "login": "Accedi",
+    "logout": "Esci",
+    "register": "Crea Account",
+    "forgotPassword": "Password Dimenticata",
+    "username": "Nome Utente",
+    "password": "Password",
+    "email": "Indirizzo Email",
+    "loginFailed": "TBD",
+    "loginSuccess": "[en] Welcome back!"
+  },
+  "dashboard": {
+    "title": "Cruscotto",
+    "welcome": "Benvenuto, {name}",
+    "statistics": "Panoramica Statistiche",
+    "totalUsers": "Utenti Totali",
+    "activeUsers": "   ",
+    "newUsers": "NUOVI",
+    "revenue": "TODO",
+    "recentActivity": "Attività Recenti",
+    "quickActions": "Azioni Rapide"
+  },
+  "profile": {
+    "title": "Il Mio Profilo",
+    "avatar": "Avatar",
+    "bio": "FIXME: biografia non tradotta",
+    "settings": "Impostazioni",
+    "preferences": "Preferenze",
+    "notifications": "Notifiche",
+    "security": "[zh] 安全设置"
+  },
+  "validation": {
+    "required": "Questo campo è obbligatorio",
+    "emailInvalid": "Inserisci un'email valida",
+    "minLength": "   ",
+    "maxLength": "UNTRANSLATED max length",
+    "passwordMismatch": "Le password non corrispondono"
+  }
+}

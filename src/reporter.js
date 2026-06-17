@@ -45,19 +45,31 @@ function renderConsoleReport(analysis, options = {}) {
     const refMark = d.isReference ? chalk.magenta(' [REF]') : '';
     const bar = color(formatBar(d.coverage));
     const coverageStr = color.bold(d.coverage.toString().padStart(6, ' ') + '%');
-    const emptyNote = d.emptyCount > 0 ? chalk.gray(`  (含空值占位: ${d.emptyCount})`) : '';
+    const emptyNote = d.emptyCount > 0 ? chalk.gray(`  (空值: ${d.emptyCount})`) : '';
+    const placeholderNote = d.placeholderCount > 0 ? chalk.gray(`  (占位符: ${d.placeholderCount})`) : '';
     lines.push(`  ${chalk.bold(locale.padEnd(8))}${refMark}`);
-    lines.push(`    ${bar} ${coverageStr}  (${d.presentCount}/${d.totalKeys}, 缺 ${d.missingCount})${emptyNote}`);
+    lines.push(`    ${bar} ${coverageStr}  (${d.presentCount}/${d.totalKeys}, 缺 ${d.missingCount})${emptyNote}${placeholderNote}`);
     lines.push(`    文件: ${chalk.gray(d.files.map(f => path.relative(process.cwd(), f)).join(', '))}`);
     if (showMissingKeys && d.missingKeys.length > 0) {
       const emptyKeySet = new Set(d.emptyKeys);
+      const placeholderKeySet = new Set(d.placeholderKeys);
       const keysToShow = d.missingKeys.slice(0, options.maxKeys || 20);
       const hidden = d.missingKeys.length - keysToShow.length;
       lines.push(`    ${chalk.red.bold('缺失键:')}`);
       for (const key of keysToShow) {
         const isEmpty = emptyKeySet.has(key);
-        const mark = isEmpty ? chalk.hex('#FFA500')('◯') : chalk.red('✗');
-        const label = isEmpty ? chalk.gray(' (空值占位)') : '';
+        const isPlaceholder = placeholderKeySet.has(key);
+        let mark, label;
+        if (isEmpty) {
+          mark = chalk.hex('#FFA500')('◯');
+          label = chalk.gray(' (空值/空白)');
+        } else if (isPlaceholder) {
+          mark = chalk.magenta('◇');
+          label = chalk.gray(' (占位符)');
+        } else {
+          mark = chalk.red('✗');
+          label = '';
+        }
         lines.push(`      ${mark} ${chalk.yellow(key)}${label}`);
       }
       if (hidden > 0) {
@@ -109,8 +121,10 @@ function generateJsonReport(analysis) {
       totalKeys: d.totalKeys,
       presentCount: d.presentCount,
       emptyCount: d.emptyCount,
+      placeholderCount: d.placeholderCount,
       missingCount: d.missingCount,
       emptyKeys: d.emptyKeys,
+      placeholderKeys: d.placeholderKeys,
       missingKeys: d.missingKeys
     };
   }

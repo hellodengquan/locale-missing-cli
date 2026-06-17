@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-17T22:24:23.808Z",
+  "generatedAt": "2026-06-17T22:34:30.136Z",
   "summary": {
     "referenceLocale": "en",
-    "totalLanguages": 7,
+    "totalLanguages": 8,
     "totalKeys": 43,
-    "overallCoverage": 84.38,
+    "overallCoverage": 82.85,
     "completeLocales": [
       "en",
       "es"
@@ -12,6 +12,7 @@
     "incompleteLocales": [
       "zh-CN",
       "ja",
+      "it",
       "de",
       "fr",
       "ko"
@@ -25,8 +26,10 @@
       "totalKeys": 43,
       "presentCount": 33,
       "emptyCount": 0,
+      "placeholderCount": 0,
       "missingCount": 10,
       "emptyKeys": [],
+      "placeholderKeys": [],
       "missingKeys": [
         "auth.loginSuccess",
         "dashboard.quickActions",
@@ -47,10 +50,52 @@
       "totalKeys": 43,
       "presentCount": 42,
       "emptyCount": 0,
+      "placeholderCount": 0,
       "missingCount": 1,
       "emptyKeys": [],
+      "placeholderKeys": [],
       "missingKeys": [
         "common.close"
+      ]
+    },
+    "it": {
+      "locale": "it",
+      "isReference": false,
+      "coverage": 72.09,
+      "totalKeys": 43,
+      "presentCount": 31,
+      "emptyCount": 4,
+      "placeholderCount": 8,
+      "missingCount": 12,
+      "emptyKeys": [
+        "app.version",
+        "common.close",
+        "dashboard.activeUsers",
+        "validation.minLength"
+      ],
+      "placeholderKeys": [
+        "app.description",
+        "auth.loginFailed",
+        "auth.loginSuccess",
+        "common.delete",
+        "dashboard.revenue",
+        "profile.bio",
+        "profile.security",
+        "validation.maxLength"
+      ],
+      "missingKeys": [
+        "app.description",
+        "app.version",
+        "auth.loginFailed",
+        "auth.loginSuccess",
+        "common.close",
+        "common.delete",
+        "dashboard.activeUsers",
+        "dashboard.revenue",
+        "profile.bio",
+        "profile.security",
+        "validation.maxLength",
+        "validation.minLength"
       ]
     },
     "en": {
@@ -60,8 +105,10 @@
       "totalKeys": 43,
       "presentCount": 43,
       "emptyCount": 0,
+      "placeholderCount": 0,
       "missingCount": 0,
       "emptyKeys": [],
+      "placeholderKeys": [],
       "missingKeys": []
     },
     "de": {
@@ -71,6 +118,7 @@
       "totalKeys": 43,
       "presentCount": 33,
       "emptyCount": 10,
+      "placeholderCount": 0,
       "missingCount": 10,
       "emptyKeys": [
         "app.description",
@@ -84,6 +132,7 @@
         "validation.maxLength",
         "validation.minLength"
       ],
+      "placeholderKeys": [],
       "missingKeys": [
         "app.description",
         "auth.loginFailed",
@@ -104,8 +153,10 @@
       "totalKeys": 43,
       "presentCount": 26,
       "emptyCount": 0,
+      "placeholderCount": 0,
       "missingCount": 17,
       "emptyKeys": [],
+      "placeholderKeys": [],
       "missingKeys": [
         "app.description",
         "auth.loginFailed",
@@ -133,8 +184,10 @@
       "totalKeys": 43,
       "presentCount": 34,
       "emptyCount": 0,
+      "placeholderCount": 0,
       "missingCount": 9,
       "emptyKeys": [],
+      "placeholderKeys": [],
       "missingKeys": [
         "common.close",
         "common.success",
@@ -154,8 +207,10 @@
       "totalKeys": 43,
       "presentCount": 43,
       "emptyCount": 0,
+      "placeholderCount": 0,
       "missingCount": 0,
       "emptyKeys": [],
+      "placeholderKeys": [],
       "missingKeys": []
     }
   }

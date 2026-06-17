@@ -1,3 +1,58 @@
+const DEFAULT_PLACEHOLDERS = [
+  'TODO',
+  'TBD',
+  'TBC',
+  'N/A',
+  'NA',
+  /^\[en\]/i,
+  /^\[zh\]/i,
+  /^\[ja\]/i,
+  /^\[ko\]/i,
+  /^\[fr\]/i,
+  /^\[de\]/i,
+  /^\[es\]/i,
+  /^\[it\]/i,
+  /^\[pt\]/i,
+  /^\[ru\]/i,
+  /^TODO:/i,
+  /^FIXME/i,
+  /^UNTRANSLATED/i
+];
+
+function normalizePlaceholders(placeholders) {
+  if (!placeholders || placeholders.length === 0) {
+    return DEFAULT_PLACEHOLDERS;
+  }
+  const result = [];
+  for (const p of placeholders) {
+    if (p instanceof RegExp) {
+      result.push(p);
+    } else if (typeof p === 'string') {
+      if (p.startsWith('/') && p.lastIndexOf('/') > 0) {
+        const lastSlash = p.lastIndexOf('/');
+        const pattern = p.slice(1, lastSlash);
+        const flags = p.slice(lastSlash + 1);
+        result.push(new RegExp(pattern, flags));
+      } else {
+        result.push(p);
+      }
+    }
+  }
+  return result;
+}
+
+function matchesPlaceholder(value, placeholders) {
+  const trimmed = typeof value === 'string' ? value.trim() : value;
+  for (const p of placeholders) {
+    if (p instanceof RegExp) {
+      if (p.test(String(trimmed))) return true;
+    } else {
+      if (String(trimmed) === String(p)) return true;
+    }
+  }
+  return false;
+}
+
 function buildAllKeysUnion(scannedLocales) {
   const allKeys = new Set();
   for (const locale of Object.keys(scannedLocales)) {
@@ -35,6 +90,7 @@ function analyzeCoverage(scannedLocales, options = {}) {
   const allKeys = options.useAllKeysUnion
     ? buildAllKeysUnion(scannedLocales)
     : (scannedLocales[refLocale]?.keys || []);
+  const placeholders = normalizePlaceholders(options.placeholders);
   const totalKeys = allKeys.length;
   const details = {};
   for (const locale of locales) {
@@ -43,15 +99,24 @@ function analyzeCoverage(scannedLocales, options = {}) {
     const presentKeys = [];
     const missingKeys = [];
     const emptyKeys = [];
+    const placeholderKeys = [];
     for (const key of allKeys) {
       if (localeKeySet.has(key)) {
-        const value = localeData.keyValueMap[key];
-        const isEmpty = value === '' || value === null || value === undefined;
+        const rawValue = localeData.keyValueMap[key];
+        const isNullOrUndefined = rawValue === null || rawValue === undefined;
+        const isStringValue = typeof rawValue === 'string';
+        const trimmedValue = isStringValue ? rawValue.trim() : rawValue;
+        const isEmptyString = isStringValue && trimmedValue === '';
+        const isEmpty = isNullOrUndefined || isEmptyString;
+        const isPlaceholder = !isEmpty && isStringValue && matchesPlaceholder(rawValue, placeholders);
         if (isEmpty) {
           emptyKeys.push(key);
           missingKeys.push(key);
+        } else if (isPlaceholder) {
+          placeholderKeys.push(key);
+          missingKeys.push(key);
         } else {
-          presentKeys.push({ key, files: localeData.keyToFile[key] || [], value });
+          presentKeys.push({ key, files: localeData.keyToFile[key] || [], value: rawValue });
         }
       } else {
         missingKeys.push(key);
@@ -59,6 +124,7 @@ function analyzeCoverage(scannedLocales, options = {}) {
     }
     const presentCount = presentKeys.length;
     const emptyCount = emptyKeys.length;
+    const placeholderCount = placeholderKeys.length;
     const coverage = totalKeys > 0 ? (presentCount / totalKeys) * 100 : 0;
     details[locale] = {
       locale,
@@ -66,10 +132,12 @@ function analyzeCoverage(scannedLocales, options = {}) {
       totalKeys,
       presentCount,
       emptyCount,
+      placeholderCount,
       missingCount: missingKeys.length,
       coverage: Number(coverage.toFixed(2)),
       presentKeys: presentKeys.map(k => k.key),
       emptyKeys,
+      placeholderKeys,
       missingKeys,
       files: localeData.files
     };
@@ -114,6 +182,9 @@ function generateDiffMatrix(analysis) {
 module.exports = {
   buildAllKeysUnion,
   detectReferenceLocale,
+  normalizePlaceholders,
+  matchesPlaceholder,
   analyzeCoverage,
-  generateDiffMatrix
+  generateDiffMatrix,
+  DEFAULT_PLACEHOLDERS
 };
