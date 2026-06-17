@@ -67,7 +67,8 @@ async function scanLocaleFiles(dir, options = {}) {
         locale,
         files: [],
         keys: new Set(),
-        keyToFile: {}
+        keyToFile: {},
+        keyValueMap: {}
       };
     }
     results[locale].files.push(file);
@@ -77,6 +78,9 @@ async function scanLocaleFiles(dir, options = {}) {
         results[locale].keyToFile[key] = [];
       }
       results[locale].keyToFile[key].push(file);
+      if (results[locale].keyValueMap[key] === undefined) {
+        results[locale].keyValueMap[key] = flatKeys[key];
+      }
     }
   }
   return Object.fromEntries(
@@ -86,7 +90,8 @@ async function scanLocaleFiles(dir, options = {}) {
         locale,
         files: data.files,
         keys: Array.from(data.keys).sort(),
-        keyToFile: data.keyToFile
+        keyToFile: data.keyToFile,
+        keyValueMap: data.keyValueMap
       }
     ])
   );

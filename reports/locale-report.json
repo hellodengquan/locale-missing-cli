@@ -1,17 +1,18 @@
 {
-  "generatedAt": "2026-06-17T22:15:29.936Z",
+  "generatedAt": "2026-06-17T22:24:23.808Z",
   "summary": {
-    "referenceLocale": "es",
-    "totalLanguages": 6,
-    "totalKeys": 45,
-    "overallCoverage": 82.59,
+    "referenceLocale": "en",
+    "totalLanguages": 7,
+    "totalKeys": 43,
+    "overallCoverage": 84.38,
     "completeLocales": [
+      "en",
       "es"
     ],
     "incompleteLocales": [
       "zh-CN",
       "ja",
-      "en",
+      "de",
       "fr",
       "ko"
     ]
@@ -20,16 +21,16 @@
     "zh-CN": {
       "locale": "zh-CN",
       "isReference": false,
-      "coverage": 73.33,
-      "totalKeys": 45,
+      "coverage": 76.74,
+      "totalKeys": 43,
       "presentCount": 33,
-      "missingCount": 12,
+      "emptyCount": 0,
+      "missingCount": 10,
+      "emptyKeys": [],
       "missingKeys": [
         "auth.loginSuccess",
         "dashboard.quickActions",
         "dashboard.revenue",
-        "extra.bonusFeature",
-        "extra.specialOffer",
         "profile.preferences",
         "profile.security",
         "validation.emailInvalid",
@@ -42,43 +43,75 @@
     "ja": {
       "locale": "ja",
       "isReference": false,
-      "coverage": 93.33,
-      "totalKeys": 45,
+      "coverage": 97.67,
+      "totalKeys": 43,
       "presentCount": 42,
-      "missingCount": 3,
+      "emptyCount": 0,
+      "missingCount": 1,
+      "emptyKeys": [],
       "missingKeys": [
-        "common.close",
-        "extra.bonusFeature",
-        "extra.specialOffer"
+        "common.close"
       ]
     },
     "en": {
       "locale": "en",
-      "isReference": false,
-      "coverage": 95.56,
-      "totalKeys": 45,
+      "isReference": true,
+      "coverage": 100,
+      "totalKeys": 43,
       "presentCount": 43,
-      "missingCount": 2,
+      "emptyCount": 0,
+      "missingCount": 0,
+      "emptyKeys": [],
+      "missingKeys": []
+    },
+    "de": {
+      "locale": "de",
+      "isReference": false,
+      "coverage": 76.74,
+      "totalKeys": 43,
+      "presentCount": 33,
+      "emptyCount": 10,
+      "missingCount": 10,
+      "emptyKeys": [
+        "app.description",
+        "auth.loginFailed",
+        "common.close",
+        "common.delete",
+        "dashboard.revenue",
+        "dashboard.statistics",
+        "profile.bio",
+        "profile.security",
+        "validation.maxLength",
+        "validation.minLength"
+      ],
       "missingKeys": [
-        "extra.bonusFeature",
-        "extra.specialOffer"
+        "app.description",
+        "auth.loginFailed",
+        "common.close",
+        "common.delete",
+        "dashboard.revenue",
+        "dashboard.statistics",
+        "profile.bio",
+        "profile.security",
+        "validation.maxLength",
+        "validation.minLength"
       ]
     },
     "fr": {
       "locale": "fr",
       "isReference": false,
-      "coverage": 57.78,
-      "totalKeys": 45,
+      "coverage": 60.47,
+      "totalKeys": 43,
       "presentCount": 26,
-      "missingCount": 19,
+      "emptyCount": 0,
+      "missingCount": 17,
+      "emptyKeys": [],
       "missingKeys": [
         "app.description",
         "auth.loginFailed",
         "auth.loginSuccess",
         "dashboard.quickActions",
         "dashboard.recentActivity",
-        "extra.bonusFeature",
-        "extra.specialOffer",
         "profile.avatar",
         "profile.bio",
         "profile.notifications",
@@ -96,15 +129,15 @@
     "ko": {
       "locale": "ko",
       "isReference": false,
-      "coverage": 75.56,
-      "totalKeys": 45,
+      "coverage": 79.07,
+      "totalKeys": 43,
       "presentCount": 34,
-      "missingCount": 11,
+      "emptyCount": 0,
+      "missingCount": 9,
+      "emptyKeys": [],
       "missingKeys": [
         "common.close",
         "common.success",
-        "extra.bonusFeature",
-        "extra.specialOffer",
         "profile.avatar",
         "profile.bio",
         "profile.notifications",
@@ -116,11 +149,13 @@
     },
     "es": {
       "locale": "es",
-      "isReference": true,
+      "isReference": false,
       "coverage": 100,
-      "totalKeys": 45,
-      "presentCount": 45,
+      "totalKeys": 43,
+      "presentCount": 43,
+      "emptyCount": 0,
       "missingCount": 0,
+      "emptyKeys": [],
       "missingKeys": []
     }
   }

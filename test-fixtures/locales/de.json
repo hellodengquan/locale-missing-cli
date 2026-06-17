@@ -1,0 +1,57 @@
+{
+  "app": {
+    "name": "Meine Anwendung",
+    "version": "Version 1.0",
+    "description": ""
+  },
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "delete": "",
+    "edit": "Bearbeiten",
+    "search": "Suchen",
+    "loading": "Laden...",
+    "error": "Fehler aufgetreten",
+    "success": "Vorgang erfolgreich",
+    "close": ""
+  },
+  "auth": {
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "register": "Konto erstellen",
+    "forgotPassword": "Passwort vergessen",
+    "username": "Benutzername",
+    "password": "Passwort",
+    "email": "E-Mail-Adresse",
+    "loginFailed": "",
+    "loginSuccess": "Willkommen zurück!"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Willkommen, {name}",
+    "statistics": "",
+    "totalUsers": "Gesamtbenutzer",
+    "activeUsers": "Aktive Benutzer",
+    "newUsers": "Neue Benutzer",
+    "revenue": "",
+    "recentActivity": "Letzte Aktivitäten",
+    "quickActions": "Schnellaktionen"
+  },
+  "profile": {
+    "title": "Mein Profil",
+    "avatar": "Avatar",
+    "bio": "",
+    "settings": "Einstellungen",
+    "preferences": "Präferenzen",
+    "notifications": "Benachrichtigungen",
+    "security": ""
+  },
+  "validation": {
+    "required": "Dieses Feld ist erforderlich",
+    "emailInvalid": "Bitte geben Sie eine gültige E-Mail ein",
+    "minLength": "",
+    "maxLength": "",
+    "passwordMismatch": "Passwörter stimmen nicht überein"
+  }
+}

@@ -45,15 +45,20 @@ function renderConsoleReport(analysis, options = {}) {
     const refMark = d.isReference ? chalk.magenta(' [REF]') : '';
     const bar = color(formatBar(d.coverage));
     const coverageStr = color.bold(d.coverage.toString().padStart(6, ' ') + '%');
+    const emptyNote = d.emptyCount > 0 ? chalk.gray(`  (含空值占位: ${d.emptyCount})`) : '';
     lines.push(`  ${chalk.bold(locale.padEnd(8))}${refMark}`);
-    lines.push(`    ${bar} ${coverageStr}  (${d.presentCount}/${d.totalKeys}, 缺 ${d.missingCount})`);
+    lines.push(`    ${bar} ${coverageStr}  (${d.presentCount}/${d.totalKeys}, 缺 ${d.missingCount})${emptyNote}`);
     lines.push(`    文件: ${chalk.gray(d.files.map(f => path.relative(process.cwd(), f)).join(', '))}`);
     if (showMissingKeys && d.missingKeys.length > 0) {
+      const emptyKeySet = new Set(d.emptyKeys);
       const keysToShow = d.missingKeys.slice(0, options.maxKeys || 20);
       const hidden = d.missingKeys.length - keysToShow.length;
       lines.push(`    ${chalk.red.bold('缺失键:')}`);
       for (const key of keysToShow) {
-        lines.push(`      ${chalk.red('✗')} ${chalk.yellow(key)}`);
+        const isEmpty = emptyKeySet.has(key);
+        const mark = isEmpty ? chalk.hex('#FFA500')('◯') : chalk.red('✗');
+        const label = isEmpty ? chalk.gray(' (空值占位)') : '';
+        lines.push(`      ${mark} ${chalk.yellow(key)}${label}`);
       }
       if (hidden > 0) {
         lines.push(`      ${chalk.gray(`... 还有 ${hidden} 个缺失键未显示 (--max-keys 调整)`)}`);
@@ -103,7 +108,9 @@ function generateJsonReport(analysis) {
       coverage: d.coverage,
       totalKeys: d.totalKeys,
       presentCount: d.presentCount,
+      emptyCount: d.emptyCount,
       missingCount: d.missingCount,
+      emptyKeys: d.emptyKeys,
       missingKeys: d.missingKeys
     };
   }

@@ -45,25 +45,31 @@ function analyzeCoverage(scannedLocales, options = {}) {
     const emptyKeys = [];
     for (const key of allKeys) {
       if (localeKeySet.has(key)) {
-        const value = localeData.keyToFile[key] ? 'present' : 'present';
-        presentKeys.push({ key, files: localeData.keyToFile[key] || [] });
-        if (value === '') {
+        const value = localeData.keyValueMap[key];
+        const isEmpty = value === '' || value === null || value === undefined;
+        if (isEmpty) {
           emptyKeys.push(key);
+          missingKeys.push(key);
+        } else {
+          presentKeys.push({ key, files: localeData.keyToFile[key] || [], value });
         }
       } else {
         missingKeys.push(key);
       }
     }
     const presentCount = presentKeys.length;
+    const emptyCount = emptyKeys.length;
     const coverage = totalKeys > 0 ? (presentCount / totalKeys) * 100 : 0;
     details[locale] = {
       locale,
       isReference: locale === refLocale,
       totalKeys,
       presentCount,
+      emptyCount,
       missingCount: missingKeys.length,
       coverage: Number(coverage.toFixed(2)),
       presentKeys: presentKeys.map(k => k.key),
+      emptyKeys,
       missingKeys,
       files: localeData.files
     };
