@@ -1,23 +1,26 @@
 {
-  "generatedAt": "2026-06-18T01:52:55.901Z",
+  "generatedAt": "2026-06-18T02:08:39.485Z",
   "summary": {
     "referenceLocale": "en",
-    "totalLanguages": 8,
+    "totalLanguages": 11,
     "totalKeys": 57,
-    "overallCoverage": 78.29,
+    "overallCoverage": 81.5,
     "completeLocales": [
       "en",
       "es"
     ],
     "incompleteLocales": [
       "zh-CN",
+      "ru",
       "ja",
       "it",
       "de",
       "fr",
+      "ar",
+      "pl",
       "ko"
     ],
-    "pluralWarningsCount": 9
+    "pluralWarningsCount": 14
   },
   "details": {
     "zh-CN": {
@@ -48,6 +51,26 @@
         "validation.minLength",
         "validation.passwordMismatch",
         "validation.required"
+      ]
+    },
+    "ru": {
+      "locale": "ru",
+      "isReference": false,
+      "coverage": 92.98,
+      "totalKeys": 57,
+      "presentCount": 53,
+      "emptyCount": 0,
+      "placeholderCount": 1,
+      "missingCount": 4,
+      "emptyKeys": [],
+      "placeholderKeys": [
+        "app.description"
+      ],
+      "missingKeys": [
+        "app.description",
+        "search.clear",
+        "search.noMatch",
+        "search.results_zero"
       ]
     },
     "ja": {
@@ -219,6 +242,51 @@
         "validation.required"
       ]
     },
+    "ar": {
+      "locale": "ar",
+      "isReference": false,
+      "coverage": 91.23,
+      "totalKeys": 57,
+      "presentCount": 52,
+      "emptyCount": 0,
+      "placeholderCount": 1,
+      "missingCount": 5,
+      "emptyKeys": [],
+      "placeholderKeys": [
+        "app.description"
+      ],
+      "missingKeys": [
+        "app.description",
+        "cart.remove_one",
+        "cart.remove_other",
+        "search.clear",
+        "search.noMatch"
+      ]
+    },
+    "pl": {
+      "locale": "pl",
+      "isReference": false,
+      "coverage": 85.96,
+      "totalKeys": 57,
+      "presentCount": 49,
+      "emptyCount": 1,
+      "placeholderCount": 0,
+      "missingCount": 8,
+      "emptyKeys": [
+        "app.description"
+      ],
+      "placeholderKeys": [],
+      "missingKeys": [
+        "app.description",
+        "cart.items_one",
+        "cart.remove_one",
+        "cart.remove_other",
+        "search.clear",
+        "search.noMatch",
+        "search.results_one",
+        "search.results_zero"
+      ]
+    },
     "ko": {
       "locale": "ko",
       "isReference": false,
@@ -266,7 +334,6 @@
       "locale": "zh-CN",
       "base": "cart.items",
       "expectedSuffixes": [
-        "one",
         "other"
       ],
       "missingSuffixes": [
@@ -274,22 +341,65 @@
       ],
       "missingKeys": [
         "cart.items_other"
-      ]
+      ],
+      "cldr": true
     },
     {
-      "locale": "zh-CN",
-      "base": "search.results",
+      "locale": "ru",
+      "base": "cart.items",
       "expectedSuffixes": [
+        "few",
+        "many",
         "one",
-        "other",
-        "zero"
+        "other"
       ],
       "missingSuffixes": [
-        "zero"
+        "few",
+        "many"
       ],
       "missingKeys": [
-        "search.results_zero"
-      ]
+        "cart.items_few",
+        "cart.items_many"
+      ],
+      "cldr": true
+    },
+    {
+      "locale": "ru",
+      "base": "cart.remove",
+      "expectedSuffixes": [
+        "few",
+        "many",
+        "one",
+        "other"
+      ],
+      "missingSuffixes": [
+        "few",
+        "many"
+      ],
+      "missingKeys": [
+        "cart.remove_few",
+        "cart.remove_many"
+      ],
+      "cldr": true
+    },
+    {
+      "locale": "ru",
+      "base": "search.results",
+      "expectedSuffixes": [
+        "few",
+        "many",
+        "one",
+        "other"
+      ],
+      "missingSuffixes": [
+        "few",
+        "many"
+      ],
+      "missingKeys": [
+        "search.results_few",
+        "search.results_many"
+      ],
+      "cldr": true
     },
     {
       "locale": "it",
@@ -303,24 +413,23 @@
       ],
       "missingKeys": [
         "cart.items_other"
-      ]
+      ],
+      "cldr": true
     },
     {
       "locale": "it",
       "base": "search.results",
       "expectedSuffixes": [
         "one",
-        "other",
-        "zero"
+        "other"
       ],
       "missingSuffixes": [
-        "one",
-        "zero"
+        "one"
       ],
       "missingKeys": [
-        "search.results_one",
-        "search.results_zero"
-      ]
+        "search.results_one"
+      ],
+      "cldr": true
     },
     {
       "locale": "de",
@@ -334,22 +443,8 @@
       ],
       "missingKeys": [
         "cart.items_other"
-      ]
-    },
-    {
-      "locale": "de",
-      "base": "search.results",
-      "expectedSuffixes": [
-        "one",
-        "other",
-        "zero"
       ],
-      "missingSuffixes": [
-        "zero"
-      ],
-      "missingKeys": [
-        "search.results_zero"
-      ]
+      "cldr": true
     },
     {
       "locale": "fr",
@@ -363,44 +458,133 @@
       ],
       "missingKeys": [
         "cart.items_other"
-      ]
+      ],
+      "cldr": true
     },
     {
       "locale": "fr",
       "base": "search.results",
       "expectedSuffixes": [
         "one",
+        "other"
+      ],
+      "missingSuffixes": [
+        "one"
+      ],
+      "missingKeys": [
+        "search.results_one"
+      ],
+      "cldr": true
+    },
+    {
+      "locale": "ar",
+      "base": "cart.items",
+      "expectedSuffixes": [
+        "few",
+        "many",
+        "one",
         "other",
+        "two",
         "zero"
       ],
       "missingSuffixes": [
-        "one",
+        "few",
+        "many",
+        "two",
         "zero"
       ],
       "missingKeys": [
-        "search.results_one",
-        "search.results_zero"
-      ]
+        "cart.items_few",
+        "cart.items_many",
+        "cart.items_two",
+        "cart.items_zero"
+      ],
+      "cldr": true
+    },
+    {
+      "locale": "ar",
+      "base": "search.results",
+      "expectedSuffixes": [
+        "few",
+        "many",
+        "one",
+        "other",
+        "two",
+        "zero"
+      ],
+      "missingSuffixes": [
+        "few",
+        "many",
+        "two"
+      ],
+      "missingKeys": [
+        "search.results_few",
+        "search.results_many",
+        "search.results_two"
+      ],
+      "cldr": true
+    },
+    {
+      "locale": "pl",
+      "base": "cart.items",
+      "expectedSuffixes": [
+        "few",
+        "many",
+        "one",
+        "other"
+      ],
+      "missingSuffixes": [
+        "few",
+        "many",
+        "one"
+      ],
+      "missingKeys": [
+        "cart.items_few",
+        "cart.items_many",
+        "cart.items_one"
+      ],
+      "cldr": true
+    },
+    {
+      "locale": "pl",
+      "base": "search.results",
+      "expectedSuffixes": [
+        "few",
+        "many",
+        "one",
+        "other"
+      ],
+      "missingSuffixes": [
+        "few",
+        "many",
+        "one"
+      ],
+      "missingKeys": [
+        "search.results_few",
+        "search.results_many",
+        "search.results_one"
+      ],
+      "cldr": true
     },
     {
       "locale": "ko",
       "base": "search.results",
       "expectedSuffixes": [
-        "one",
-        "other",
-        "zero"
+        "other"
       ],
       "missingSuffixes": [
         "other"
       ],
       "missingKeys": [
         "search.results_other"
-      ]
+      ],
+      "cldr": true
     }
   ],
   "namespaces": {
     "app": {
       "namespace": "app",
+      "depth": 1,
       "totalKeys": 3,
       "locales": {
         "zh-CN": {
@@ -411,6 +595,17 @@
           "placeholder": 0,
           "missing": 0,
           "missingKeys": []
+        },
+        "ru": {
+          "coverage": 66.67,
+          "total": 3,
+          "present": 2,
+          "empty": 0,
+          "placeholder": 1,
+          "missing": 1,
+          "missingKeys": [
+            "app.description"
+          ]
         },
         "ja": {
           "coverage": 100,
@@ -464,6 +659,28 @@
             "app.description"
           ]
         },
+        "ar": {
+          "coverage": 66.67,
+          "total": 3,
+          "present": 2,
+          "empty": 0,
+          "placeholder": 1,
+          "missing": 1,
+          "missingKeys": [
+            "app.description"
+          ]
+        },
+        "pl": {
+          "coverage": 66.67,
+          "total": 3,
+          "present": 2,
+          "empty": 1,
+          "placeholder": 0,
+          "missing": 1,
+          "missingKeys": [
+            "app.description"
+          ]
+        },
         "ko": {
           "coverage": 100,
           "total": 3,
@@ -486,6 +703,7 @@
     },
     "auth": {
       "namespace": "auth",
+      "depth": 1,
       "totalKeys": 9,
       "locales": {
         "zh-CN": {
@@ -498,6 +716,15 @@
           "missingKeys": [
             "auth.loginSuccess"
           ]
+        },
+        "ru": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
         },
         "ja": {
           "coverage": 100,
@@ -552,6 +779,24 @@
             "auth.loginSuccess"
           ]
         },
+        "ar": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "pl": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
         "ko": {
           "coverage": 100,
           "total": 9,
@@ -574,6 +819,7 @@
     },
     "cart": {
       "namespace": "cart",
+      "depth": 1,
       "totalKeys": 8,
       "locales": {
         "zh-CN": {
@@ -588,6 +834,15 @@
             "cart.remove_one",
             "cart.remove_other"
           ]
+        },
+        "ru": {
+          "coverage": 100,
+          "total": 8,
+          "present": 8,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
         },
         "ja": {
           "coverage": 100,
@@ -654,6 +909,31 @@
             "cart.subtotal"
           ]
         },
+        "ar": {
+          "coverage": 75,
+          "total": 8,
+          "present": 6,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 2,
+          "missingKeys": [
+            "cart.remove_one",
+            "cart.remove_other"
+          ]
+        },
+        "pl": {
+          "coverage": 62.5,
+          "total": 8,
+          "present": 5,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 3,
+          "missingKeys": [
+            "cart.items_one",
+            "cart.remove_one",
+            "cart.remove_other"
+          ]
+        },
         "ko": {
           "coverage": 75,
           "total": 8,
@@ -679,9 +959,19 @@
     },
     "common": {
       "namespace": "common",
+      "depth": 1,
       "totalKeys": 10,
       "locales": {
         "zh-CN": {
+          "coverage": 100,
+          "total": 10,
+          "present": 10,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "ru": {
           "coverage": 100,
           "total": 10,
           "present": 10,
@@ -743,6 +1033,24 @@
           "missing": 0,
           "missingKeys": []
         },
+        "ar": {
+          "coverage": 100,
+          "total": 10,
+          "present": 10,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "pl": {
+          "coverage": 100,
+          "total": 10,
+          "present": 10,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
         "ko": {
           "coverage": 80,
           "total": 10,
@@ -768,6 +1076,7 @@
     },
     "dashboard": {
       "namespace": "dashboard",
+      "depth": 1,
       "totalKeys": 9,
       "locales": {
         "zh-CN": {
@@ -781,6 +1090,15 @@
             "dashboard.quickActions",
             "dashboard.revenue"
           ]
+        },
+        "ru": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
         },
         "ja": {
           "coverage": 100,
@@ -836,6 +1154,24 @@
             "dashboard.recentActivity"
           ]
         },
+        "ar": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "pl": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
         "ko": {
           "coverage": 100,
           "total": 9,
@@ -858,6 +1194,7 @@
     },
     "profile": {
       "namespace": "profile",
+      "depth": 1,
       "totalKeys": 7,
       "locales": {
         "zh-CN": {
@@ -871,6 +1208,15 @@
             "profile.preferences",
             "profile.security"
           ]
+        },
+        "ru": {
+          "coverage": 100,
+          "total": 7,
+          "present": 7,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
         },
         "ja": {
           "coverage": 100,
@@ -931,6 +1277,24 @@
             "profile.title"
           ]
         },
+        "ar": {
+          "coverage": 100,
+          "total": 7,
+          "present": 7,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "pl": {
+          "coverage": 100,
+          "total": 7,
+          "present": 7,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
         "ko": {
           "coverage": 0,
           "total": 7,
@@ -961,9 +1325,23 @@
     },
     "search": {
       "namespace": "search",
+      "depth": 1,
       "totalKeys": 6,
       "locales": {
         "zh-CN": {
+          "coverage": 50,
+          "total": 6,
+          "present": 3,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 3,
+          "missingKeys": [
+            "search.clear",
+            "search.noMatch",
+            "search.results_zero"
+          ]
+        },
+        "ru": {
           "coverage": 50,
           "total": 6,
           "present": 3,
@@ -1036,6 +1414,32 @@
             "search.results_zero"
           ]
         },
+        "ar": {
+          "coverage": 66.67,
+          "total": 6,
+          "present": 4,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 2,
+          "missingKeys": [
+            "search.clear",
+            "search.noMatch"
+          ]
+        },
+        "pl": {
+          "coverage": 33.33,
+          "total": 6,
+          "present": 2,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 4,
+          "missingKeys": [
+            "search.clear",
+            "search.noMatch",
+            "search.results_one",
+            "search.results_zero"
+          ]
+        },
         "ko": {
           "coverage": 50,
           "total": 6,
@@ -1062,6 +1466,7 @@
     },
     "validation": {
       "namespace": "validation",
+      "depth": 1,
       "totalKeys": 5,
       "locales": {
         "zh-CN": {
@@ -1078,6 +1483,15 @@
             "validation.passwordMismatch",
             "validation.required"
           ]
+        },
+        "ru": {
+          "coverage": 100,
+          "total": 5,
+          "present": 5,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
         },
         "ja": {
           "coverage": 100,
@@ -1135,6 +1549,24 @@
             "validation.passwordMismatch",
             "validation.required"
           ]
+        },
+        "ar": {
+          "coverage": 100,
+          "total": 5,
+          "present": 5,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "pl": {
+          "coverage": 100,
+          "total": 5,
+          "present": 5,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
         },
         "ko": {
           "coverage": 100,

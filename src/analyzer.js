@@ -19,6 +19,64 @@ const DEFAULT_PLACEHOLDERS = [
   /^UNTRANSLATED/i
 ];
 
+const CLDR_PLURAL_RULES = {
+  'af': ['one', 'other'],
+  'am': ['one', 'other'],
+  'ar': ['zero', 'one', 'two', 'few', 'many', 'other'],
+  'be': ['one', 'few', 'many', 'other'],
+  'bg': ['one', 'other'],
+  'cs': ['one', 'few', 'many', 'other'],
+  'da': ['one', 'other'],
+  'de': ['one', 'other'],
+  'el': ['one', 'other'],
+  'en': ['one', 'other'],
+  'es': ['one', 'other'],
+  'et': ['one', 'other'],
+  'fi': ['one', 'other'],
+  'fr': ['one', 'other'],
+  'he': ['one', 'two', 'other'],
+  'hi': ['one', 'other'],
+  'hr': ['one', 'few', 'many', 'other'],
+  'hu': ['one', 'other'],
+  'id': ['other'],
+  'is': ['one', 'other'],
+  'it': ['one', 'other'],
+  'ja': ['other'],
+  'ko': ['other'],
+  'lt': ['one', 'few', 'many', 'other'],
+  'lv': ['zero', 'one', 'other'],
+  'mk': ['one', 'other'],
+  'ms': ['other'],
+  'nl': ['one', 'other'],
+  'no': ['one', 'other'],
+  'pl': ['one', 'few', 'many', 'other'],
+  'pt': ['one', 'other'],
+  'ro': ['one', 'few', 'other'],
+  'ru': ['one', 'few', 'many', 'other'],
+  'sk': ['one', 'few', 'many', 'other'],
+  'sl': ['one', 'two', 'few', 'other'],
+  'sr': ['one', 'few', 'many', 'other'],
+  'sv': ['one', 'other'],
+  'th': ['other'],
+  'tr': ['other'],
+  'uk': ['one', 'few', 'many', 'other'],
+  'vi': ['other'],
+  'zh': ['other'],
+  'zh-CN': ['other'],
+  'zh-TW': ['other']
+};
+
+function getCldrPluralCategories(locale) {
+  if (CLDR_PLURAL_RULES[locale]) {
+    return CLDR_PLURAL_RULES[locale].slice();
+  }
+  const short = locale.split('-')[0].split('_')[0].toLowerCase();
+  if (CLDR_PLURAL_RULES[short]) {
+    return CLDR_PLURAL_RULES[short].slice();
+  }
+  return ['one', 'other'];
+}
+
 function normalizePlaceholders(placeholders) {
   if (!placeholders || placeholders.length === 0) {
     return DEFAULT_PLACEHOLDERS;
@@ -153,8 +211,8 @@ function analyzeCoverage(scannedLocales, options = {}) {
     incompleteLocales: Object.values(details).filter(d => d.missingCount > 0).map(d => d.locale)
   };
   const partial = { locales, allKeys, summary, details };
-  const incompletePlurals = detectIncompletePlurals(partial);
-  const namespaces = analyzeByNamespace(partial);
+  const incompletePlurals = detectIncompletePlurals(partial, { useCldr: options.useCldr });
+  const namespaces = analyzeByNamespace(partial, { depth: options.namespaceDepth || 1 });
   summary.pluralWarningsCount = incompletePlurals.length;
   return {
     ...partial,
@@ -174,7 +232,7 @@ function getPluralBase(key) {
   return null;
 }
 
-function detectIncompletePlurals(analysis) {
+function detectIncompletePlurals(analysis, options = {}) {
   const { locales, allKeys, details } = analysis;
   if (locales.length === 0) return [];
   const baseToSuffixes = new Map();
@@ -187,44 +245,54 @@ function detectIncompletePlurals(analysis) {
       baseToSuffixes.get(plural.base).add(plural.suffix);
     }
   }
-  const expectedSuffixes = new Set();
-  for (const suffixes of baseToSuffixes.values()) {
-    for (const s of suffixes) expectedSuffixes.add(s);
-  }
   const warnings = [];
+  const useCldr = options.useCldr !== false;
   for (const locale of locales) {
     const detail = details[locale];
     const presentKeySet = new Set(detail.presentKeys);
-    for (const [base, suffixes] of baseToSuffixes.entries()) {
-      const hasAny = [...suffixes].some(s => presentKeySet.has(`${base}_${s}`));
-      if (hasAny) {
-        const missingSuffixes = [...suffixes].filter(s => !presentKeySet.has(`${base}_${s}`));
-        if (missingSuffixes.length > 0) {
-          warnings.push({
-            locale,
-            base,
-            expectedSuffixes: [...suffixes].sort(),
-            missingSuffixes: missingSuffixes.sort(),
-            missingKeys: missingSuffixes.map(s => `${base}_${s}`)
-          });
-        }
+    const cldrCategories = useCldr ? getCldrPluralCategories(locale) : null;
+    for (const [base, globalSuffixes] of baseToSuffixes.entries()) {
+      const hasAnyPresent = [...globalSuffixes].some(s => presentKeySet.has(`${base}_${s}`));
+      if (!hasAnyPresent) continue;
+      let expectedSuffixes;
+      if (useCldr && cldrCategories) {
+        expectedSuffixes = cldrCategories.slice();
+      } else {
+        expectedSuffixes = [...globalSuffixes];
+      }
+      const missingSuffixes = expectedSuffixes.filter(s => !presentKeySet.has(`${base}_${s}`));
+      if (missingSuffixes.length > 0) {
+        warnings.push({
+          locale,
+          base,
+          expectedSuffixes: expectedSuffixes.sort(),
+          missingSuffixes: missingSuffixes.sort(),
+          missingKeys: missingSuffixes.map(s => `${base}_${s}`),
+          cldr: !!(useCldr && cldrCategories)
+        });
       }
     }
   }
   return warnings;
 }
 
-function getNamespace(key) {
-  const firstDot = key.indexOf('.');
-  return firstDot === -1 ? key : key.slice(0, firstDot);
+function getNamespace(key, depth = 1) {
+  if (depth <= 1) {
+    const firstDot = key.indexOf('.');
+    return firstDot === -1 ? key : key.slice(0, firstDot);
+  }
+  const parts = key.split('.');
+  const take = Math.min(depth, parts.length);
+  return parts.slice(0, take).join('.');
 }
 
-function analyzeByNamespace(analysis) {
+function analyzeByNamespace(analysis, options = {}) {
+  const depth = options.depth || 1;
   const { locales, allKeys, details } = analysis;
   if (locales.length === 0) return {};
   const namespaceKeys = new Map();
   for (const key of allKeys) {
-    const ns = getNamespace(key);
+    const ns = getNamespace(key, depth);
     if (!namespaceKeys.has(ns)) namespaceKeys.set(ns, []);
     namespaceKeys.get(ns).push(key);
   }
@@ -272,6 +340,7 @@ function analyzeByNamespace(analysis) {
     }
     result[namespace] = {
       namespace,
+      depth,
       totalKeys: nsTotal,
       keys: nsKeys.sort(),
       locales: localeStats
@@ -310,6 +379,8 @@ module.exports = {
   analyzeByNamespace,
   getPluralBase,
   getNamespace,
+  getCldrPluralCategories,
   PLURAL_SUFFIXES,
+  CLDR_PLURAL_RULES,
   DEFAULT_PLACEHOLDERS
 };

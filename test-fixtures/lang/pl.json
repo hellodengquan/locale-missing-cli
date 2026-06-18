@@ -1,0 +1,68 @@
+{
+  "app": {
+    "name": "Moja aplikacja",
+    "version": "Wersja 1.0",
+    "description": ""
+  },
+  "common": {
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "confirm": "Potwierdź",
+    "delete": "Usuń",
+    "edit": "Edytuj",
+    "search": "Szukaj",
+    "loading": "Ładowanie...",
+    "error": "Wystąpił błąd",
+    "success": "Operacja powiodła się",
+    "close": "Zamknij"
+  },
+  "auth": {
+    "login": "Zaloguj się",
+    "logout": "Wyloguj się",
+    "register": "Utwórz konto",
+    "forgotPassword": "Zapomniałem hasła",
+    "username": "Nazwa użytkownika",
+    "password": "Hasło",
+    "email": "Adres e-mail",
+    "loginFailed": "Logowanie nie powiodło się",
+    "loginSuccess": "Witaj ponownie!"
+  },
+  "dashboard": {
+    "title": "Panel sterowania",
+    "welcome": "Witaj, {name}",
+    "statistics": "Przegląd statystyk",
+    "totalUsers": "Całkowita liczba użytkowników",
+    "activeUsers": "Aktywni użytkownicy",
+    "newUsers": "Nowi użytkownicy",
+    "revenue": "Przychód",
+    "recentActivity": "Ostatnia aktywność",
+    "quickActions": "Szybkie akcje"
+  },
+  "profile": {
+    "title": "Mój profil",
+    "avatar": "Awatar",
+    "bio": "O mnie",
+    "settings": "Ustawienia",
+    "preferences": "Preferencje",
+    "notifications": "Powiadomienia",
+    "security": "Bezpieczeństwo"
+  },
+  "validation": {
+    "required": "To pole jest wymagane",
+    "emailInvalid": "Wprowadź prawidłowy adres e-mail",
+    "minLength": "Minimalna długość to {min} znaków",
+    "maxLength": "Maksymalna długość to {max} znaków",
+    "passwordMismatch": "Hasła nie pasują do siebie"
+  },
+  "cart": {
+    "title": "Koszyk",
+    "items_other": "{count} przedmiotów w Twoim koszyku",
+    "empty": "Twój koszyk jest pusty",
+    "checkout": "Przejdź do kasy",
+    "subtotal": "Suma częściowa"
+  },
+  "search": {
+    "placeholder": "Szukaj...",
+    "results_other": "Znaleziono {count} wyników"
+  }
+}

@@ -129,14 +129,17 @@ function renderConsoleReport(analysis, options = {}) {
   }
   if (options.showNamespace && analysis.namespaces && Object.keys(analysis.namespaces).length > 0) {
     lines.push(chalk.bold('🏷️   Namespace 汇总视图'));
-    lines.push(chalk.gray('───────────────────────────────────────────────'));
+    const firstNs = analysis.namespaces[Object.keys(analysis.namespaces)[0]];
+    const depthLabel = firstNs && firstNs.depth ? ` (深度: ${firstNs.depth})` : '';
+    lines.push(chalk.gray('───────────────────────────────────────────────' + depthLabel));
     const namespaceNames = Object.keys(analysis.namespaces).sort();
     const localeNames = Object.keys(details).sort();
-    const nsHeader = ['Namespace'.padEnd(14), ...localeNames.map(l => l.padEnd(10))].join(' ');
+    const maxNsLen = Math.max(9, ...namespaceNames.map(n => n.length));
+    const nsHeader = ['Namespace'.padEnd(maxNsLen), ...localeNames.map(l => l.padEnd(10))].join(' ');
     lines.push(`  ${chalk.bold(nsHeader)}`);
     for (const ns of namespaceNames) {
       const nsData = analysis.namespaces[ns];
-      const row = [ns.padEnd(14)];
+      const row = [ns.padEnd(maxNsLen)];
       for (const locale of localeNames) {
         const stat = nsData.locales[locale];
         if (!stat) {
@@ -206,6 +209,7 @@ function generateJsonReport(analysis) {
     }
     simpleNamespaces[ns] = {
       namespace: ns,
+      depth: nsData.depth,
       totalKeys: nsData.totalKeys,
       locales: localeStats
     };

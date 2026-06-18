@@ -1,0 +1,72 @@
+{
+  "app": {
+    "name": "تطبيقي",
+    "version": "الإصدار 1.0",
+    "description": "TODO"
+  },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "search": "بحث",
+    "loading": "جارٍ التحميل...",
+    "error": "حدث خطأ",
+    "success": "عملية ناجحة",
+    "close": "إغلاق"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "register": "إنشاء حساب",
+    "forgotPassword": "نسيت كلمة المرور",
+    "username": "اسم المستخدم",
+    "password": "كلمة المرور",
+    "email": "البريد الإلكتروني",
+    "loginFailed": "فشل تسجيل الدخول",
+    "loginSuccess": "مرحبًا بعودتك!"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "welcome": "مرحبًا، {name}",
+    "statistics": "نظرة عامة على الإحصائيات",
+    "totalUsers": "إجمالي المستخدمين",
+    "activeUsers": "المستخدمون النشطون",
+    "newUsers": "المستخدمون الجدد",
+    "revenue": "الإيرادات",
+    "recentActivity": "الأنشطة الأخيرة",
+    "quickActions": "إجراءات سريعة"
+  },
+  "profile": {
+    "title": "ملفي الشخصي",
+    "avatar": "الصورة الرمزية",
+    "bio": "نبذة",
+    "settings": "الإعدادات",
+    "preferences": "التفضيلات",
+    "notifications": "الإشعارات",
+    "security": "الأمان"
+  },
+  "validation": {
+    "required": "هذا الحقل مطلوب",
+    "emailInvalid": "يرجى إدخال بريد إلكتروني صالح",
+    "minLength": "الحد الأدنى للطول {min} حرف",
+    "maxLength": "الحد الأقصى للطول {max} حرف",
+    "passwordMismatch": "كلمات المرور غير متطابقة"
+  },
+  "cart": {
+    "title": "سلة التسوق",
+    "items_one": "منتج واحد في سلتك",
+    "items_two": "منتجان في سلتك",
+    "items_other": "{count} منتجات في سلتك",
+    "empty": "سلتك فارغة",
+    "checkout": "إتمام الشراء",
+    "subtotal": "المجموع الفرعي"
+  },
+  "search": {
+    "placeholder": "بحث...",
+    "results_zero": "لم يتم العثور على نتائج",
+    "results_one": "تم العثور على نتيجة واحدة",
+    "results_other": "تم العثور على {count} نتيجة"
+  }
+}

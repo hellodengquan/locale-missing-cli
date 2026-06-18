@@ -1,0 +1,74 @@
+{
+  "app": {
+    "name": "Моё приложение",
+    "version": "Версия 1.0",
+    "description": "[ru] Описание"
+  },
+  "common": {
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "confirm": "Подтвердить",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "search": "Поиск",
+    "loading": "Загрузка...",
+    "error": "Произошла ошибка",
+    "success": "Операция успешна",
+    "close": "Закрыть"
+  },
+  "auth": {
+    "login": "Войти",
+    "logout": "Выйти",
+    "register": "Регистрация",
+    "forgotPassword": "Забыли пароль",
+    "username": "Имя пользователя",
+    "password": "Пароль",
+    "email": "Email адрес",
+    "loginFailed": "Ошибка входа",
+    "loginSuccess": "С возвращением!"
+  },
+  "dashboard": {
+    "title": "Панель управления",
+    "welcome": "Добро пожаловать, {name}",
+    "statistics": "Обзор статистики",
+    "totalUsers": "Всего пользователей",
+    "activeUsers": "Активные пользователи",
+    "newUsers": "Новые пользователи",
+    "revenue": "Доход",
+    "recentActivity": "Последние активности",
+    "quickActions": "Быстрые действия"
+  },
+  "profile": {
+    "title": "Мой профиль",
+    "avatar": "Аватар",
+    "bio": "О себе",
+    "settings": "Настройки",
+    "preferences": "Предпочтения",
+    "notifications": "Уведомления",
+    "security": "Безопасность"
+  },
+  "validation": {
+    "required": "Это поле обязательное",
+    "emailInvalid": "Введите корректный email",
+    "minLength": "Минимальная длина {min} символов",
+    "maxLength": "Максимальная длина {max} символов",
+    "passwordMismatch": "Пароли не совпадают"
+  },
+  "cart": {
+    "title": "Корзина",
+    "items_one": "{count} товар в вашей корзине",
+    "items_other": "{count} товаров в вашей корзине",
+    "empty": "Ваша корзина пуста",
+    "checkout": "Оформить заказ",
+    "subtotal": "Промежуточный итог",
+    "remove_one": "Удалить этот товар",
+    "remove_other": "Удалить эти {count} товаров"
+  },
+  "search": {
+    "placeholder": "Поиск...",
+    "results_one": "{count} результат найден",
+    "results_few": "{count} результата найдено",
+    "results_many": "{count} результатов найдено",
+    "results_other": "{count} результатов найдено"
+  }
+}

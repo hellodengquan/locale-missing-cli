@@ -30,9 +30,11 @@ program
   .option('--placeholder <tokens...>', '自定义占位符标记（字符串或 /regex/ 格式），匹配到的值视为未翻译。默认包含 TODO/TBD/[en] 等')
   .option('--no-default-placeholders', '禁用内置占位符检测，仅使用 --placeholder 指定的')
   .option('--namespace', '输出按 namespace 汇总的视图（按 auth/dashboard/profile 等分组）')
+  .option('--namespace-depth <number>', 'Namespace 提取层级深度（1=首段，2=前两段）', '1')
   .option('--no-namespace-details', '在 namespace 视图中不显示具体缺失键列表')
   .option('--max-namespace-keys <number>', '每个 namespace 下每种语言最多显示的缺失键数', '10')
-  .option('--no-plurals', '不输出复数键不完整警告');
+  .option('--no-plurals', '不输出复数键不完整警告')
+  .option('--no-cldr', '禁用 CLDR 复数规则，改用全局基准语言的后缀判定');
 
 async function main() {
   program.parse(process.argv);
@@ -66,7 +68,9 @@ async function main() {
   const analysis = analyzeCoverage(scanned, {
     referenceLocale: opts.reference,
     useAllKeysUnion: !!opts.union,
-    placeholders: placeholderList
+    placeholders: placeholderList,
+    useCldr: opts.cldr !== false,
+    namespaceDepth: parseInt(opts.namespaceDepth, 10) || 1
   });
   const consoleOptions = {
     showMissingKeys: opts.missing !== false,
