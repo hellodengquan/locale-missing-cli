@@ -53,5 +53,15 @@
     "minLength": "",
     "maxLength": "",
     "passwordMismatch": "Passwörter stimmen nicht überein"
+  },
+  "cart": {
+    "title": "Einkaufswagen",
+    "items_one": "{count} Artikel in Ihrem Einkaufswagen",
+    "items_other": ""
+  },
+  "search": {
+    "placeholder": "TODO",
+    "results_one": "Ein Ergebnis gefunden",
+    "results_other": "{count} Ergebnisse gefunden"
   }
 }

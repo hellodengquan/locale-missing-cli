@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-17T22:34:30.136Z",
+  "generatedAt": "2026-06-18T01:52:55.901Z",
   "summary": {
     "referenceLocale": "en",
     "totalLanguages": 8,
-    "totalKeys": 43,
-    "overallCoverage": 82.85,
+    "totalKeys": 57,
+    "overallCoverage": 78.29,
     "completeLocales": [
       "en",
       "es"
@@ -16,26 +16,33 @@
       "de",
       "fr",
       "ko"
-    ]
+    ],
+    "pluralWarningsCount": 9
   },
   "details": {
     "zh-CN": {
       "locale": "zh-CN",
       "isReference": false,
-      "coverage": 76.74,
-      "totalKeys": 43,
-      "presentCount": 33,
+      "coverage": 71.93,
+      "totalKeys": 57,
+      "presentCount": 41,
       "emptyCount": 0,
       "placeholderCount": 0,
-      "missingCount": 10,
+      "missingCount": 16,
       "emptyKeys": [],
       "placeholderKeys": [],
       "missingKeys": [
         "auth.loginSuccess",
+        "cart.items_other",
+        "cart.remove_one",
+        "cart.remove_other",
         "dashboard.quickActions",
         "dashboard.revenue",
         "profile.preferences",
         "profile.security",
+        "search.clear",
+        "search.noMatch",
+        "search.results_zero",
         "validation.emailInvalid",
         "validation.maxLength",
         "validation.minLength",
@@ -46,9 +53,9 @@
     "ja": {
       "locale": "ja",
       "isReference": false,
-      "coverage": 97.67,
-      "totalKeys": 43,
-      "presentCount": 42,
+      "coverage": 98.25,
+      "totalKeys": 57,
+      "presentCount": 56,
       "emptyCount": 0,
       "placeholderCount": 0,
       "missingCount": 1,
@@ -61,26 +68,29 @@
     "it": {
       "locale": "it",
       "isReference": false,
-      "coverage": 72.09,
-      "totalKeys": 43,
-      "presentCount": 31,
-      "emptyCount": 4,
-      "placeholderCount": 8,
-      "missingCount": 12,
+      "coverage": 63.16,
+      "totalKeys": 57,
+      "presentCount": 36,
+      "emptyCount": 5,
+      "placeholderCount": 10,
+      "missingCount": 21,
       "emptyKeys": [
         "app.version",
         "common.close",
         "dashboard.activeUsers",
+        "search.results_zero",
         "validation.minLength"
       ],
       "placeholderKeys": [
         "app.description",
         "auth.loginFailed",
         "auth.loginSuccess",
+        "cart.items_other",
         "common.delete",
         "dashboard.revenue",
         "profile.bio",
         "profile.security",
+        "search.results_one",
         "validation.maxLength"
       ],
       "missingKeys": [
@@ -88,12 +98,21 @@
         "app.version",
         "auth.loginFailed",
         "auth.loginSuccess",
+        "cart.checkout",
+        "cart.items_other",
+        "cart.remove_one",
+        "cart.remove_other",
+        "cart.subtotal",
         "common.close",
         "common.delete",
         "dashboard.activeUsers",
         "dashboard.revenue",
         "profile.bio",
         "profile.security",
+        "search.clear",
+        "search.noMatch",
+        "search.results_one",
+        "search.results_zero",
         "validation.maxLength",
         "validation.minLength"
       ]
@@ -102,8 +121,8 @@
       "locale": "en",
       "isReference": true,
       "coverage": 100,
-      "totalKeys": 43,
-      "presentCount": 43,
+      "totalKeys": 57,
+      "presentCount": 57,
       "emptyCount": 0,
       "placeholderCount": 0,
       "missingCount": 0,
@@ -114,15 +133,16 @@
     "de": {
       "locale": "de",
       "isReference": false,
-      "coverage": 76.74,
-      "totalKeys": 43,
-      "presentCount": 33,
-      "emptyCount": 10,
-      "placeholderCount": 0,
-      "missingCount": 10,
+      "coverage": 64.91,
+      "totalKeys": 57,
+      "presentCount": 37,
+      "emptyCount": 11,
+      "placeholderCount": 1,
+      "missingCount": 20,
       "emptyKeys": [
         "app.description",
         "auth.loginFailed",
+        "cart.items_other",
         "common.close",
         "common.delete",
         "dashboard.revenue",
@@ -132,16 +152,28 @@
         "validation.maxLength",
         "validation.minLength"
       ],
-      "placeholderKeys": [],
+      "placeholderKeys": [
+        "search.placeholder"
+      ],
       "missingKeys": [
         "app.description",
         "auth.loginFailed",
+        "cart.checkout",
+        "cart.empty",
+        "cart.items_other",
+        "cart.remove_one",
+        "cart.remove_other",
+        "cart.subtotal",
         "common.close",
         "common.delete",
         "dashboard.revenue",
         "dashboard.statistics",
         "profile.bio",
         "profile.security",
+        "search.clear",
+        "search.noMatch",
+        "search.placeholder",
+        "search.results_zero",
         "validation.maxLength",
         "validation.minLength"
       ]
@@ -149,18 +181,24 @@
     "fr": {
       "locale": "fr",
       "isReference": false,
-      "coverage": 60.47,
-      "totalKeys": 43,
-      "presentCount": 26,
+      "coverage": 52.63,
+      "totalKeys": 57,
+      "presentCount": 30,
       "emptyCount": 0,
       "placeholderCount": 0,
-      "missingCount": 17,
+      "missingCount": 27,
       "emptyKeys": [],
       "placeholderKeys": [],
       "missingKeys": [
         "app.description",
         "auth.loginFailed",
         "auth.loginSuccess",
+        "cart.checkout",
+        "cart.empty",
+        "cart.items_other",
+        "cart.remove_one",
+        "cart.remove_other",
+        "cart.subtotal",
         "dashboard.quickActions",
         "dashboard.recentActivity",
         "profile.avatar",
@@ -170,6 +208,10 @@
         "profile.security",
         "profile.settings",
         "profile.title",
+        "search.clear",
+        "search.noMatch",
+        "search.results_one",
+        "search.results_zero",
         "validation.emailInvalid",
         "validation.maxLength",
         "validation.minLength",
@@ -180,15 +222,17 @@
     "ko": {
       "locale": "ko",
       "isReference": false,
-      "coverage": 79.07,
-      "totalKeys": 43,
-      "presentCount": 34,
+      "coverage": 75.44,
+      "totalKeys": 57,
+      "presentCount": 43,
       "emptyCount": 0,
       "placeholderCount": 0,
-      "missingCount": 9,
+      "missingCount": 14,
       "emptyKeys": [],
       "placeholderKeys": [],
       "missingKeys": [
+        "cart.remove_one",
+        "cart.remove_other",
         "common.close",
         "common.success",
         "profile.avatar",
@@ -197,21 +241,920 @@
         "profile.preferences",
         "profile.security",
         "profile.settings",
-        "profile.title"
+        "profile.title",
+        "search.clear",
+        "search.noMatch",
+        "search.results_other"
       ]
     },
     "es": {
       "locale": "es",
       "isReference": false,
       "coverage": 100,
-      "totalKeys": 43,
-      "presentCount": 43,
+      "totalKeys": 57,
+      "presentCount": 57,
       "emptyCount": 0,
       "placeholderCount": 0,
       "missingCount": 0,
       "emptyKeys": [],
       "placeholderKeys": [],
       "missingKeys": []
+    }
+  },
+  "incompletePlurals": [
+    {
+      "locale": "zh-CN",
+      "base": "cart.items",
+      "expectedSuffixes": [
+        "one",
+        "other"
+      ],
+      "missingSuffixes": [
+        "other"
+      ],
+      "missingKeys": [
+        "cart.items_other"
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "base": "search.results",
+      "expectedSuffixes": [
+        "one",
+        "other",
+        "zero"
+      ],
+      "missingSuffixes": [
+        "zero"
+      ],
+      "missingKeys": [
+        "search.results_zero"
+      ]
+    },
+    {
+      "locale": "it",
+      "base": "cart.items",
+      "expectedSuffixes": [
+        "one",
+        "other"
+      ],
+      "missingSuffixes": [
+        "other"
+      ],
+      "missingKeys": [
+        "cart.items_other"
+      ]
+    },
+    {
+      "locale": "it",
+      "base": "search.results",
+      "expectedSuffixes": [
+        "one",
+        "other",
+        "zero"
+      ],
+      "missingSuffixes": [
+        "one",
+        "zero"
+      ],
+      "missingKeys": [
+        "search.results_one",
+        "search.results_zero"
+      ]
+    },
+    {
+      "locale": "de",
+      "base": "cart.items",
+      "expectedSuffixes": [
+        "one",
+        "other"
+      ],
+      "missingSuffixes": [
+        "other"
+      ],
+      "missingKeys": [
+        "cart.items_other"
+      ]
+    },
+    {
+      "locale": "de",
+      "base": "search.results",
+      "expectedSuffixes": [
+        "one",
+        "other",
+        "zero"
+      ],
+      "missingSuffixes": [
+        "zero"
+      ],
+      "missingKeys": [
+        "search.results_zero"
+      ]
+    },
+    {
+      "locale": "fr",
+      "base": "cart.items",
+      "expectedSuffixes": [
+        "one",
+        "other"
+      ],
+      "missingSuffixes": [
+        "other"
+      ],
+      "missingKeys": [
+        "cart.items_other"
+      ]
+    },
+    {
+      "locale": "fr",
+      "base": "search.results",
+      "expectedSuffixes": [
+        "one",
+        "other",
+        "zero"
+      ],
+      "missingSuffixes": [
+        "one",
+        "zero"
+      ],
+      "missingKeys": [
+        "search.results_one",
+        "search.results_zero"
+      ]
+    },
+    {
+      "locale": "ko",
+      "base": "search.results",
+      "expectedSuffixes": [
+        "one",
+        "other",
+        "zero"
+      ],
+      "missingSuffixes": [
+        "other"
+      ],
+      "missingKeys": [
+        "search.results_other"
+      ]
+    }
+  ],
+  "namespaces": {
+    "app": {
+      "namespace": "app",
+      "totalKeys": 3,
+      "locales": {
+        "zh-CN": {
+          "coverage": 100,
+          "total": 3,
+          "present": 3,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "ja": {
+          "coverage": 100,
+          "total": 3,
+          "present": 3,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "it": {
+          "coverage": 33.33,
+          "total": 3,
+          "present": 1,
+          "empty": 1,
+          "placeholder": 1,
+          "missing": 2,
+          "missingKeys": [
+            "app.description",
+            "app.version"
+          ]
+        },
+        "en": {
+          "coverage": 100,
+          "total": 3,
+          "present": 3,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "de": {
+          "coverage": 66.67,
+          "total": 3,
+          "present": 2,
+          "empty": 1,
+          "placeholder": 0,
+          "missing": 1,
+          "missingKeys": [
+            "app.description"
+          ]
+        },
+        "fr": {
+          "coverage": 66.67,
+          "total": 3,
+          "present": 2,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 1,
+          "missingKeys": [
+            "app.description"
+          ]
+        },
+        "ko": {
+          "coverage": 100,
+          "total": 3,
+          "present": 3,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "es": {
+          "coverage": 100,
+          "total": 3,
+          "present": 3,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        }
+      }
+    },
+    "auth": {
+      "namespace": "auth",
+      "totalKeys": 9,
+      "locales": {
+        "zh-CN": {
+          "coverage": 88.89,
+          "total": 9,
+          "present": 8,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 1,
+          "missingKeys": [
+            "auth.loginSuccess"
+          ]
+        },
+        "ja": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "it": {
+          "coverage": 77.78,
+          "total": 9,
+          "present": 7,
+          "empty": 0,
+          "placeholder": 2,
+          "missing": 2,
+          "missingKeys": [
+            "auth.loginFailed",
+            "auth.loginSuccess"
+          ]
+        },
+        "en": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "de": {
+          "coverage": 88.89,
+          "total": 9,
+          "present": 8,
+          "empty": 1,
+          "placeholder": 0,
+          "missing": 1,
+          "missingKeys": [
+            "auth.loginFailed"
+          ]
+        },
+        "fr": {
+          "coverage": 77.78,
+          "total": 9,
+          "present": 7,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 2,
+          "missingKeys": [
+            "auth.loginFailed",
+            "auth.loginSuccess"
+          ]
+        },
+        "ko": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "es": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        }
+      }
+    },
+    "cart": {
+      "namespace": "cart",
+      "totalKeys": 8,
+      "locales": {
+        "zh-CN": {
+          "coverage": 62.5,
+          "total": 8,
+          "present": 5,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 3,
+          "missingKeys": [
+            "cart.items_other",
+            "cart.remove_one",
+            "cart.remove_other"
+          ]
+        },
+        "ja": {
+          "coverage": 100,
+          "total": 8,
+          "present": 8,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "it": {
+          "coverage": 37.5,
+          "total": 8,
+          "present": 3,
+          "empty": 0,
+          "placeholder": 1,
+          "missing": 5,
+          "missingKeys": [
+            "cart.checkout",
+            "cart.items_other",
+            "cart.remove_one",
+            "cart.remove_other",
+            "cart.subtotal"
+          ]
+        },
+        "en": {
+          "coverage": 100,
+          "total": 8,
+          "present": 8,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "de": {
+          "coverage": 25,
+          "total": 8,
+          "present": 2,
+          "empty": 1,
+          "placeholder": 0,
+          "missing": 6,
+          "missingKeys": [
+            "cart.checkout",
+            "cart.empty",
+            "cart.items_other",
+            "cart.remove_one",
+            "cart.remove_other",
+            "cart.subtotal"
+          ]
+        },
+        "fr": {
+          "coverage": 25,
+          "total": 8,
+          "present": 2,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 6,
+          "missingKeys": [
+            "cart.checkout",
+            "cart.empty",
+            "cart.items_other",
+            "cart.remove_one",
+            "cart.remove_other",
+            "cart.subtotal"
+          ]
+        },
+        "ko": {
+          "coverage": 75,
+          "total": 8,
+          "present": 6,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 2,
+          "missingKeys": [
+            "cart.remove_one",
+            "cart.remove_other"
+          ]
+        },
+        "es": {
+          "coverage": 100,
+          "total": 8,
+          "present": 8,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        }
+      }
+    },
+    "common": {
+      "namespace": "common",
+      "totalKeys": 10,
+      "locales": {
+        "zh-CN": {
+          "coverage": 100,
+          "total": 10,
+          "present": 10,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "ja": {
+          "coverage": 90,
+          "total": 10,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 1,
+          "missingKeys": [
+            "common.close"
+          ]
+        },
+        "it": {
+          "coverage": 80,
+          "total": 10,
+          "present": 8,
+          "empty": 1,
+          "placeholder": 1,
+          "missing": 2,
+          "missingKeys": [
+            "common.close",
+            "common.delete"
+          ]
+        },
+        "en": {
+          "coverage": 100,
+          "total": 10,
+          "present": 10,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "de": {
+          "coverage": 80,
+          "total": 10,
+          "present": 8,
+          "empty": 2,
+          "placeholder": 0,
+          "missing": 2,
+          "missingKeys": [
+            "common.close",
+            "common.delete"
+          ]
+        },
+        "fr": {
+          "coverage": 100,
+          "total": 10,
+          "present": 10,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "ko": {
+          "coverage": 80,
+          "total": 10,
+          "present": 8,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 2,
+          "missingKeys": [
+            "common.close",
+            "common.success"
+          ]
+        },
+        "es": {
+          "coverage": 100,
+          "total": 10,
+          "present": 10,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        }
+      }
+    },
+    "dashboard": {
+      "namespace": "dashboard",
+      "totalKeys": 9,
+      "locales": {
+        "zh-CN": {
+          "coverage": 77.78,
+          "total": 9,
+          "present": 7,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 2,
+          "missingKeys": [
+            "dashboard.quickActions",
+            "dashboard.revenue"
+          ]
+        },
+        "ja": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "it": {
+          "coverage": 77.78,
+          "total": 9,
+          "present": 7,
+          "empty": 1,
+          "placeholder": 1,
+          "missing": 2,
+          "missingKeys": [
+            "dashboard.activeUsers",
+            "dashboard.revenue"
+          ]
+        },
+        "en": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "de": {
+          "coverage": 77.78,
+          "total": 9,
+          "present": 7,
+          "empty": 2,
+          "placeholder": 0,
+          "missing": 2,
+          "missingKeys": [
+            "dashboard.revenue",
+            "dashboard.statistics"
+          ]
+        },
+        "fr": {
+          "coverage": 77.78,
+          "total": 9,
+          "present": 7,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 2,
+          "missingKeys": [
+            "dashboard.quickActions",
+            "dashboard.recentActivity"
+          ]
+        },
+        "ko": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "es": {
+          "coverage": 100,
+          "total": 9,
+          "present": 9,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        }
+      }
+    },
+    "profile": {
+      "namespace": "profile",
+      "totalKeys": 7,
+      "locales": {
+        "zh-CN": {
+          "coverage": 71.43,
+          "total": 7,
+          "present": 5,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 2,
+          "missingKeys": [
+            "profile.preferences",
+            "profile.security"
+          ]
+        },
+        "ja": {
+          "coverage": 100,
+          "total": 7,
+          "present": 7,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "it": {
+          "coverage": 71.43,
+          "total": 7,
+          "present": 5,
+          "empty": 0,
+          "placeholder": 2,
+          "missing": 2,
+          "missingKeys": [
+            "profile.bio",
+            "profile.security"
+          ]
+        },
+        "en": {
+          "coverage": 100,
+          "total": 7,
+          "present": 7,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "de": {
+          "coverage": 71.43,
+          "total": 7,
+          "present": 5,
+          "empty": 2,
+          "placeholder": 0,
+          "missing": 2,
+          "missingKeys": [
+            "profile.bio",
+            "profile.security"
+          ]
+        },
+        "fr": {
+          "coverage": 0,
+          "total": 7,
+          "present": 0,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 7,
+          "missingKeys": [
+            "profile.avatar",
+            "profile.bio",
+            "profile.notifications",
+            "profile.preferences",
+            "profile.security",
+            "profile.settings",
+            "profile.title"
+          ]
+        },
+        "ko": {
+          "coverage": 0,
+          "total": 7,
+          "present": 0,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 7,
+          "missingKeys": [
+            "profile.avatar",
+            "profile.bio",
+            "profile.notifications",
+            "profile.preferences",
+            "profile.security",
+            "profile.settings",
+            "profile.title"
+          ]
+        },
+        "es": {
+          "coverage": 100,
+          "total": 7,
+          "present": 7,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        }
+      }
+    },
+    "search": {
+      "namespace": "search",
+      "totalKeys": 6,
+      "locales": {
+        "zh-CN": {
+          "coverage": 50,
+          "total": 6,
+          "present": 3,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 3,
+          "missingKeys": [
+            "search.clear",
+            "search.noMatch",
+            "search.results_zero"
+          ]
+        },
+        "ja": {
+          "coverage": 100,
+          "total": 6,
+          "present": 6,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "it": {
+          "coverage": 33.33,
+          "total": 6,
+          "present": 2,
+          "empty": 1,
+          "placeholder": 1,
+          "missing": 4,
+          "missingKeys": [
+            "search.clear",
+            "search.noMatch",
+            "search.results_one",
+            "search.results_zero"
+          ]
+        },
+        "en": {
+          "coverage": 100,
+          "total": 6,
+          "present": 6,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "de": {
+          "coverage": 33.33,
+          "total": 6,
+          "present": 2,
+          "empty": 0,
+          "placeholder": 1,
+          "missing": 4,
+          "missingKeys": [
+            "search.clear",
+            "search.noMatch",
+            "search.placeholder",
+            "search.results_zero"
+          ]
+        },
+        "fr": {
+          "coverage": 33.33,
+          "total": 6,
+          "present": 2,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 4,
+          "missingKeys": [
+            "search.clear",
+            "search.noMatch",
+            "search.results_one",
+            "search.results_zero"
+          ]
+        },
+        "ko": {
+          "coverage": 50,
+          "total": 6,
+          "present": 3,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 3,
+          "missingKeys": [
+            "search.clear",
+            "search.noMatch",
+            "search.results_other"
+          ]
+        },
+        "es": {
+          "coverage": 100,
+          "total": 6,
+          "present": 6,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        }
+      }
+    },
+    "validation": {
+      "namespace": "validation",
+      "totalKeys": 5,
+      "locales": {
+        "zh-CN": {
+          "coverage": 0,
+          "total": 5,
+          "present": 0,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 5,
+          "missingKeys": [
+            "validation.emailInvalid",
+            "validation.maxLength",
+            "validation.minLength",
+            "validation.passwordMismatch",
+            "validation.required"
+          ]
+        },
+        "ja": {
+          "coverage": 100,
+          "total": 5,
+          "present": 5,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "it": {
+          "coverage": 60,
+          "total": 5,
+          "present": 3,
+          "empty": 1,
+          "placeholder": 1,
+          "missing": 2,
+          "missingKeys": [
+            "validation.maxLength",
+            "validation.minLength"
+          ]
+        },
+        "en": {
+          "coverage": 100,
+          "total": 5,
+          "present": 5,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "de": {
+          "coverage": 60,
+          "total": 5,
+          "present": 3,
+          "empty": 2,
+          "placeholder": 0,
+          "missing": 2,
+          "missingKeys": [
+            "validation.maxLength",
+            "validation.minLength"
+          ]
+        },
+        "fr": {
+          "coverage": 0,
+          "total": 5,
+          "present": 0,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 5,
+          "missingKeys": [
+            "validation.emailInvalid",
+            "validation.maxLength",
+            "validation.minLength",
+            "validation.passwordMismatch",
+            "validation.required"
+          ]
+        },
+        "ko": {
+          "coverage": 100,
+          "total": 5,
+          "present": 5,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        },
+        "es": {
+          "coverage": 100,
+          "total": 5,
+          "present": 5,
+          "empty": 0,
+          "placeholder": 0,
+          "missing": 0,
+          "missingKeys": []
+        }
+      }
     }
   }
 }

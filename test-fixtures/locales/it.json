@@ -53,5 +53,17 @@
     "minLength": "   ",
     "maxLength": "UNTRANSLATED max length",
     "passwordMismatch": "Le password non corrispondono"
+  },
+  "cart": {
+    "title": "Carrello",
+    "items_one": "{count} articolo nel tuo carrello",
+    "items_other": "[en] {count} items in your cart",
+    "empty": "Il tuo carrello è vuoto"
+  },
+  "search": {
+    "placeholder": "Cerca...",
+    "results_zero": "   ",
+    "results_one": "TBD",
+    "results_other": "{count} risultati trovati"
   }
 }

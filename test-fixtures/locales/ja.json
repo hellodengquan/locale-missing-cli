@@ -52,5 +52,23 @@
     "minLength": "最小文字数は{min}文字です",
     "maxLength": "最大文字数は{max}文字です",
     "passwordMismatch": "パスワードが一致しません"
+  },
+  "cart": {
+    "title": "ショッピングカート",
+    "items_one": "カートに {count} 点の商品があります",
+    "items_other": "カートに {count} 点の商品があります",
+    "empty": "カートは空です",
+    "checkout": "会計へ進む",
+    "subtotal": "小計",
+    "remove_one": "この商品を削除",
+    "remove_other": "これら {count} 点の商品を削除"
+  },
+  "search": {
+    "placeholder": "検索...",
+    "results_zero": "結果が見つかりません",
+    "results_one": "1 件の結果が見つかりました",
+    "results_other": "{count} 件の結果が見つかりました",
+    "noMatch": "別の検索語を試してください",
+    "clear": "検索をクリア"
   }
 }

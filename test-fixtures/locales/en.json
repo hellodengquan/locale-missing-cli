@@ -53,5 +53,23 @@
     "minLength": "Minimum length is {min} characters",
     "maxLength": "Maximum length is {max} characters",
     "passwordMismatch": "Passwords do not match"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "items_one": "{count} item in your cart",
+    "items_other": "{count} items in your cart",
+    "empty": "Your cart is empty",
+    "checkout": "Proceed to Checkout",
+    "subtotal": "Subtotal",
+    "remove_one": "Remove this item",
+    "remove_other": "Remove these {count} items"
+  },
+  "search": {
+    "placeholder": "Search...",
+    "results_zero": "No results found",
+    "results_one": "One result found",
+    "results_other": "{count} results found",
+    "noMatch": "Try a different search term",
+    "clear": "Clear search"
   }
 }

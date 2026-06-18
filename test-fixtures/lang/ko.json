@@ -42,5 +42,18 @@
     "minLength": "최소 길이는 {min}자입니다",
     "maxLength": "최대 길이는 {max}자입니다",
     "passwordMismatch": "비밀번호가 일치하지 않습니다"
+  },
+  "cart": {
+    "title": "장바구니",
+    "items_one": "장바구니에 {count}개의 상품이 있습니다",
+    "items_other": "장바구니에 {count}개의 상품이 있습니다",
+    "empty": "장바구니가 비어 있습니다",
+    "checkout": "결제 진행",
+    "subtotal": "소계"
+  },
+  "search": {
+    "placeholder": "검색...",
+    "results_zero": "검색 결과가 없습니다",
+    "results_one": "검색 결과가 한 건 있습니다"
   }
 }

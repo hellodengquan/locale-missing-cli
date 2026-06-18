@@ -152,12 +152,132 @@ function analyzeCoverage(scannedLocales, options = {}) {
     completeLocales: Object.values(details).filter(d => d.missingCount === 0).map(d => d.locale),
     incompleteLocales: Object.values(details).filter(d => d.missingCount > 0).map(d => d.locale)
   };
+  const partial = { locales, allKeys, summary, details };
+  const incompletePlurals = detectIncompletePlurals(partial);
+  const namespaces = analyzeByNamespace(partial);
+  summary.pluralWarningsCount = incompletePlurals.length;
   return {
-    locales,
-    allKeys,
-    summary,
-    details
+    ...partial,
+    incompletePlurals,
+    namespaces
   };
+}
+
+const PLURAL_SUFFIXES = ['zero', 'one', 'two', 'few', 'many', 'other'];
+const PLURAL_SUFFIX_PATTERN = new RegExp(`_(${PLURAL_SUFFIXES.join('|')})$`);
+
+function getPluralBase(key) {
+  const match = key.match(PLURAL_SUFFIX_PATTERN);
+  if (match) {
+    return { base: key.slice(0, -match[0].length), suffix: match[1] };
+  }
+  return null;
+}
+
+function detectIncompletePlurals(analysis) {
+  const { locales, allKeys, details } = analysis;
+  if (locales.length === 0) return [];
+  const baseToSuffixes = new Map();
+  for (const key of allKeys) {
+    const plural = getPluralBase(key);
+    if (plural) {
+      if (!baseToSuffixes.has(plural.base)) {
+        baseToSuffixes.set(plural.base, new Set());
+      }
+      baseToSuffixes.get(plural.base).add(plural.suffix);
+    }
+  }
+  const expectedSuffixes = new Set();
+  for (const suffixes of baseToSuffixes.values()) {
+    for (const s of suffixes) expectedSuffixes.add(s);
+  }
+  const warnings = [];
+  for (const locale of locales) {
+    const detail = details[locale];
+    const presentKeySet = new Set(detail.presentKeys);
+    for (const [base, suffixes] of baseToSuffixes.entries()) {
+      const hasAny = [...suffixes].some(s => presentKeySet.has(`${base}_${s}`));
+      if (hasAny) {
+        const missingSuffixes = [...suffixes].filter(s => !presentKeySet.has(`${base}_${s}`));
+        if (missingSuffixes.length > 0) {
+          warnings.push({
+            locale,
+            base,
+            expectedSuffixes: [...suffixes].sort(),
+            missingSuffixes: missingSuffixes.sort(),
+            missingKeys: missingSuffixes.map(s => `${base}_${s}`)
+          });
+        }
+      }
+    }
+  }
+  return warnings;
+}
+
+function getNamespace(key) {
+  const firstDot = key.indexOf('.');
+  return firstDot === -1 ? key : key.slice(0, firstDot);
+}
+
+function analyzeByNamespace(analysis) {
+  const { locales, allKeys, details } = analysis;
+  if (locales.length === 0) return {};
+  const namespaceKeys = new Map();
+  for (const key of allKeys) {
+    const ns = getNamespace(key);
+    if (!namespaceKeys.has(ns)) namespaceKeys.set(ns, []);
+    namespaceKeys.get(ns).push(key);
+  }
+  const result = {};
+  for (const [namespace, nsKeys] of namespaceKeys.entries()) {
+    const nsTotal = nsKeys.length;
+    const nsKeySet = new Set(nsKeys);
+    const localeStats = {};
+    for (const locale of locales) {
+      const d = details[locale];
+      let nsPresent = 0;
+      let nsEmpty = 0;
+      let nsPlaceholder = 0;
+      let nsMissing = 0;
+      const nsMissingKeys = [];
+      const emptyKeySet = new Set(d.emptyKeys);
+      const placeholderKeySet = new Set(d.placeholderKeys);
+      const presentKeySet = new Set(d.presentKeys);
+      for (const key of nsKeys) {
+        if (emptyKeySet.has(key)) {
+          nsEmpty++;
+          nsMissing++;
+          nsMissingKeys.push(key);
+        } else if (placeholderKeySet.has(key)) {
+          nsPlaceholder++;
+          nsMissing++;
+          nsMissingKeys.push(key);
+        } else if (presentKeySet.has(key)) {
+          nsPresent++;
+        } else {
+          nsMissing++;
+          nsMissingKeys.push(key);
+        }
+      }
+      localeStats[locale] = {
+        locale,
+        total: nsTotal,
+        present: nsPresent,
+        empty: nsEmpty,
+        placeholder: nsPlaceholder,
+        missing: nsMissing,
+        missingKeys: nsMissingKeys.sort(),
+        coverage: nsTotal > 0 ? Number(((nsPresent / nsTotal) * 100).toFixed(2)) : 0
+      };
+    }
+    result[namespace] = {
+      namespace,
+      totalKeys: nsTotal,
+      keys: nsKeys.sort(),
+      locales: localeStats
+    };
+  }
+  return result;
 }
 
 function generateDiffMatrix(analysis) {
@@ -186,5 +306,10 @@ module.exports = {
   matchesPlaceholder,
   analyzeCoverage,
   generateDiffMatrix,
+  detectIncompletePlurals,
+  analyzeByNamespace,
+  getPluralBase,
+  getNamespace,
+  PLURAL_SUFFIXES,
   DEFAULT_PLACEHOLDERS
 };

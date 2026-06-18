@@ -57,5 +57,23 @@
   "extra": {
     "bonusFeature": "Función adicional",
     "specialOffer": "Oferta especial"
+  },
+  "cart": {
+    "title": "Carrito de Compras",
+    "items_one": "{count} artículo en tu carrito",
+    "items_other": "{count} artículos en tu carrito",
+    "empty": "Tu carrito está vacío",
+    "checkout": "Proceder al Pago",
+    "subtotal": "Subtotal",
+    "remove_one": "Eliminar este artículo",
+    "remove_other": "Eliminar estos {count} artículos"
+  },
+  "search": {
+    "placeholder": "Buscar...",
+    "results_zero": "No se encontraron resultados",
+    "results_one": "Un resultado encontrado",
+    "results_other": "{count} resultados encontrados",
+    "noMatch": "Prueba con otro término de búsqueda",
+    "clear": "Borrar búsqueda"
   }
 }

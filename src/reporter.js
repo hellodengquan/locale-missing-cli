@@ -35,7 +35,28 @@ function renderConsoleReport(analysis, options = {}) {
   lines.push(`  整体覆盖率 (Overall):     ${getStatusColor(summary.overallCoverage).bold(summary.overallCoverage + '%')}`);
   lines.push(`  ✅ 完整语言: ${summary.completeLocales.length > 0 ? chalk.green(summary.completeLocales.join(', ')) : chalk.gray('(无)')}`);
   lines.push(`  ⚠️  待补语言: ${summary.incompleteLocales.length > 0 ? chalk.yellow(summary.incompleteLocales.join(', ')) : chalk.gray('(无)')}`);
+  if (summary.pluralWarningsCount > 0) {
+    lines.push(`  ⚠️  复数键不完整: ${chalk.yellow.bold(summary.pluralWarningsCount + ' 处')}  (详见下方复数键警告)`);
+  }
   lines.push('');
+  if (analysis.incompletePlurals && analysis.incompletePlurals.length > 0 && options.showPlurals !== false) {
+    lines.push(chalk.bold.yellow('⚠️  复数键不完整警告 Plural Warnings'));
+    lines.push(chalk.gray('───────────────────────────────────────────────'));
+    const pluralsByLocale = {};
+    for (const w of analysis.incompletePlurals) {
+      if (!pluralsByLocale[w.locale]) pluralsByLocale[w.locale] = [];
+      pluralsByLocale[w.locale].push(w);
+    }
+    for (const locale of Object.keys(pluralsByLocale).sort()) {
+      lines.push(`  ${chalk.bold(locale)}:`);
+      for (const w of pluralsByLocale[locale]) {
+        const expected = w.expectedSuffixes.map(s => chalk.green(s)).join(', ');
+        const missing = w.missingSuffixes.map(s => chalk.red.bold(s)).join(', ');
+        lines.push(`    ${chalk.yellow(w.base)}: 需要 [${expected}]，缺 [${missing}]`);
+      }
+    }
+    lines.push('');
+  }
   lines.push(chalk.bold('📋  各语言详情 Details'));
   lines.push(chalk.gray('───────────────────────────────────────────────'));
   const localeNames = Object.keys(details).sort();
@@ -106,11 +127,52 @@ function renderConsoleReport(analysis, options = {}) {
       lines.push('');
     }
   }
+  if (options.showNamespace && analysis.namespaces && Object.keys(analysis.namespaces).length > 0) {
+    lines.push(chalk.bold('🏷️   Namespace 汇总视图'));
+    lines.push(chalk.gray('───────────────────────────────────────────────'));
+    const namespaceNames = Object.keys(analysis.namespaces).sort();
+    const localeNames = Object.keys(details).sort();
+    const nsHeader = ['Namespace'.padEnd(14), ...localeNames.map(l => l.padEnd(10))].join(' ');
+    lines.push(`  ${chalk.bold(nsHeader)}`);
+    for (const ns of namespaceNames) {
+      const nsData = analysis.namespaces[ns];
+      const row = [ns.padEnd(14)];
+      for (const locale of localeNames) {
+        const stat = nsData.locales[locale];
+        if (!stat) {
+          row.push('-'.padEnd(10));
+          continue;
+        }
+        const color = getStatusColor(stat.coverage);
+        const cov = color(stat.coverage.toString().padStart(5, ' ') + '%');
+        const mark = stat.missing > 0 ? ` ${chalk.red('✗')}${stat.missing}` : ` ${chalk.green('✓')}`;
+        row.push(cov + mark);
+      }
+      lines.push(`  ${row.join(' ')}`);
+    }
+    lines.push('');
+    if (options.showNamespaceDetails !== false) {
+      for (const ns of namespaceNames) {
+        const nsData = analysis.namespaces[ns];
+        const badLocales = Object.entries(nsData.locales)
+          .filter(([, s]) => s.missing > 0)
+          .sort(([, a], [, b]) => b.missing - a.missing);
+        if (badLocales.length === 0) continue;
+        lines.push(`  ${chalk.bold(ns)}  (共 ${nsData.totalKeys} 键)`);
+        for (const [locale, stat] of badLocales) {
+          const keysToShow = stat.missingKeys.slice(0, options.maxNamespaceKeys || 10);
+          const hidden = stat.missingKeys.length - keysToShow.length;
+          lines.push(`    ${chalk.bold(locale.padEnd(8))} 缺 ${stat.missing}: ${chalk.yellow(keysToShow.join(', '))}${hidden > 0 ? chalk.gray(` ... +${hidden}`) : ''}`);
+        }
+        lines.push('');
+      }
+    }
+  }
   return lines.join('\n');
 }
 
 function generateJsonReport(analysis) {
-  const { summary, details } = analysis;
+  const { summary, details, incompletePlurals = [], namespaces = {} } = analysis;
   const simpleDetails = {};
   for (const locale of Object.keys(details)) {
     const d = details[locale];
@@ -128,10 +190,32 @@ function generateJsonReport(analysis) {
       missingKeys: d.missingKeys
     };
   }
+  const simpleNamespaces = {};
+  for (const [ns, nsData] of Object.entries(namespaces)) {
+    const localeStats = {};
+    for (const [locale, stat] of Object.entries(nsData.locales)) {
+      localeStats[locale] = {
+        coverage: stat.coverage,
+        total: stat.total,
+        present: stat.present,
+        empty: stat.empty,
+        placeholder: stat.placeholder,
+        missing: stat.missing,
+        missingKeys: stat.missingKeys
+      };
+    }
+    simpleNamespaces[ns] = {
+      namespace: ns,
+      totalKeys: nsData.totalKeys,
+      locales: localeStats
+    };
+  }
   return JSON.stringify({
     generatedAt: new Date().toISOString(),
     summary,
-    details: simpleDetails
+    details: simpleDetails,
+    incompletePlurals,
+    namespaces: simpleNamespaces
   }, null, 2);
 }
 

@@ -32,5 +32,13 @@
     "activeUsers": "Utilisateurs actifs",
     "newUsers": "Nouveaux utilisateurs",
     "revenue": "Revenus"
+  },
+  "cart": {
+    "title": "Panier",
+    "items_one": "{count} article dans votre panier"
+  },
+  "search": {
+    "placeholder": "Rechercher...",
+    "results_other": "{count} résultats trouvés"
   }
 }

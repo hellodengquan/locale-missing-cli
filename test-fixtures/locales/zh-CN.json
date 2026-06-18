@@ -41,5 +41,17 @@
     "bio": "个人简介",
     "settings": "设置",
     "notifications": "通知设置"
+  },
+  "cart": {
+    "title": "购物车",
+    "items_one": "购物车中有 {count} 件商品",
+    "empty": "你的购物车是空的",
+    "checkout": "前往结算",
+    "subtotal": "小计"
+  },
+  "search": {
+    "placeholder": "搜索...",
+    "results_one": "找到一个结果",
+    "results_other": "找到 {count} 个结果"
   }
 }

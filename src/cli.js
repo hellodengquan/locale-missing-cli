@@ -28,7 +28,11 @@ program
   .option('--format <format>', '输出格式: console,json,csv,all', 'console')
   .option('--fail-under <percentage>', '覆盖率低于此百分比时退出码为 1', '0')
   .option('--placeholder <tokens...>', '自定义占位符标记（字符串或 /regex/ 格式），匹配到的值视为未翻译。默认包含 TODO/TBD/[en] 等')
-  .option('--no-default-placeholders', '禁用内置占位符检测，仅使用 --placeholder 指定的');
+  .option('--no-default-placeholders', '禁用内置占位符检测，仅使用 --placeholder 指定的')
+  .option('--namespace', '输出按 namespace 汇总的视图（按 auth/dashboard/profile 等分组）')
+  .option('--no-namespace-details', '在 namespace 视图中不显示具体缺失键列表')
+  .option('--max-namespace-keys <number>', '每个 namespace 下每种语言最多显示的缺失键数', '10')
+  .option('--no-plurals', '不输出复数键不完整警告');
 
 async function main() {
   program.parse(process.argv);
@@ -68,7 +72,11 @@ async function main() {
     showMissingKeys: opts.missing !== false,
     showMatrix: !!opts.matrix,
     maxKeys: parseInt(opts.maxKeys, 10),
-    maxMatrixRows: parseInt(opts.maxMatrixRows, 10)
+    maxMatrixRows: parseInt(opts.maxMatrixRows, 10),
+    showNamespace: !!opts.namespace,
+    showNamespaceDetails: opts.namespaceDetails !== false,
+    maxNamespaceKeys: parseInt(opts.maxNamespaceKeys, 10),
+    showPlurals: opts.plurals !== false
   };
   if (opts.format === 'console' || opts.format === 'all') {
     const report = renderConsoleReport(analysis, consoleOptions);
